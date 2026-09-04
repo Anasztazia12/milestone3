@@ -1,9 +1,11 @@
+/* colors */
 :root {
     --main-color: #2e7d32;
     --light-bg: #f4f4f4;
     --border-color: #cccccc;
 }
 
+/* page background */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--light-bg);
@@ -16,6 +18,7 @@ h1 {
     margin-top: 0;
 }
 
+/* white card for forms and boxes */
 form,
 .box {
     max-width: 400px;
@@ -30,6 +33,7 @@ form,
     position: relative;
 }
 
+/* logo inside the box on index */
 .corner-image {
     display: block;
     margin: 0 auto 10px auto;
@@ -41,6 +45,7 @@ form,
     transform: scale(1.1);
 }
 
+/* form fields */
 label {
     display: block;
     margin-bottom: 5px;
@@ -55,14 +60,25 @@ input {
     box-sizing: border-box;
 }
 
+/* top nav bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.nav-links a {
+    margin-left: 10px;
+}
+
+/* logo + name in the navbar */
 .brand {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     text-decoration: none;
     color: inherit;
-    margin-bottom: 5px;
 }
 
 .brand-image {
@@ -73,6 +89,7 @@ input {
     opacity: 0.85;
 }
 
+/* small logo above the copyright text */
 .footer-image {
     max-width: 100px;
     display: block;
@@ -93,6 +110,7 @@ input {
     color: #1b5e20;
 }
 
+/* button hover colors */
 .btn-success:hover {
     background-color: #0d3b66;
     border-color: #0d3b66;
@@ -109,10 +127,10 @@ body > p {
     text-align: center;
 }
 
+/* bottom of every page */
 footer {
     text-align: center;
     margin-top: 15px;
     color: #666666;
     font-size: 14px;
 }
-
