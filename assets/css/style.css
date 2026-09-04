@@ -44,6 +44,8 @@ input {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .brand-image {
