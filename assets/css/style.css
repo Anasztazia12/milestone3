@@ -63,6 +63,7 @@ input {
 /* top nav bar */
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
