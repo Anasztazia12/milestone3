@@ -34,6 +34,11 @@ form,
     display: block;
     margin: 0 auto 10px auto;
     max-width: 200px;
+    transition: transform 0.2s;
+}
+
+.corner-image:hover {
+    transform: scale(1.1);
 }
 
 label {
