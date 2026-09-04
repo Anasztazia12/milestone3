@@ -76,6 +76,10 @@ input {
     color: #ffffff;
 }
 
+body > p {
+    text-align: center;
+}
+
 footer {
     text-align: center;
     margin-top: 30px;
