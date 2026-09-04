@@ -54,3 +54,36 @@ The solution becomes valuable when it offers:
 - basic invoicing as the feature set grows
 
 People pay for tools that reduce admin work, increase professionalism, and make running a business easier.
+
+## User Stories
+
+- As a new user, I want to sign up for an account, so that I can start managing my business.
+- As a returning user, I want to log in, so that I can access my dashboard.
+- As a visitor, I want to try the app as a guest, so that I can see what it offers before signing up.
+- As a business owner, I want to manage my clients and bookings in one place, so that I save time on admin.
+
+## UX Design (5 Planes)
+
+### 1. Strategy
+
+Business owners need a fast, simple way to manage clients and bookings without juggling multiple apps.
+
+### 2. Scope
+
+Login, signup, a guest-accessible dashboard preview, and basic client/booking management. Invoicing is out of scope for now (see Future Improvements).
+
+### 3. Structure
+
+Homepage links to login and signup, both link back to home and to each other, and a guest can preview the dashboard without an account.
+
+### 4. Skeleton
+
+Each page is a centred white card on a light grey background, with a nav bar at the top and a footer at the bottom, kept consistent across all pages.
+
+### 5. Surface
+
+Green and white colour scheme (matches the logo), Bootstrap buttons, simple sans-serif font.
+
+## Future Improvements
+
+- Full invoicing feature (creating, sending and tracking invoices) is planned for a later version and is not part of the current scope.
