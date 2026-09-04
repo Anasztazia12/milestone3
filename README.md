@@ -80,6 +80,11 @@ Homepage links to login and signup, both link back to home and to each other, an
 
 Each page is a centred white card on a light grey background, with a nav bar at the top and a footer at the bottom, kept consistent across all pages.
 
+Early wireframes (wireframe image generation with Copilot, used for layout reference before building the pages):
+
+![Dashboard wireframe](assets/images/wireframe.png)
+![Login wireframe](assets/images/wireframe2.png)
+
 ### 5. Surface
 
 Green and white colour scheme (matches the logo), Bootstrap buttons, simple sans-serif font.
@@ -87,3 +92,8 @@ Green and white colour scheme (matches the logo), Bootstrap buttons, simple sans
 ## Future Improvements
 
 - Full invoicing feature (creating, sending and tracking invoices) is planned for a later version and is not part of the current scope.
+
+## Credits
+
+- Dashboard and login wireframe images - generated with Copilot
+- manage.gif - Pixabay.com
