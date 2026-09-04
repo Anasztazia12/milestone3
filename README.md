@@ -89,6 +89,24 @@ Early wireframes (wireframe image generation with Copilot, used for layout refer
 
 Green and white colour scheme (matches the logo), Bootstrap buttons, simple sans-serif font.
 
+## Data Schema
+
+Planned models for the full version:
+
+### Client
+
+- name
+- email
+- phone
+
+### Booking
+
+- title
+- date and time
+- linked to one client
+
+Each client can have many bookings (one-to-many relationship).
+
 ## Future Improvements
 
 - Full invoicing feature (creating, sending and tracking invoices) is planned for a later version and is not part of the current scope.
