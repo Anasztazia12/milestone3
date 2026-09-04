@@ -39,3 +39,14 @@ input {
     box-sizing: border-box;
 }
 
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.brand-image {
+    max-width: 180px;
+}
+
