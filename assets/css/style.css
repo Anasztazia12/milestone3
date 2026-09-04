@@ -49,11 +49,17 @@ input {
 }
 
 .brand-image {
-    max-width: 180px;
+    max-width: 260px;
 }
 
-.brand:hover h2 {
-    color: var(--main-color);
+.brand:hover .brand-image {
+    opacity: 0.85;
+}
+
+.footer-image {
+    max-width: 60px;
+    display: block;
+    margin: 0 auto 5px auto;
 }
 
 .manage-image {
