@@ -114,4 +114,5 @@ Each client can have many bookings (one-to-many relationship).
 ## Credits
 
 - Dashboard and login wireframe images - generated with Copilot
-- manage.gif - Pixabay.com
+- Logo - designed with Copilot
+- business-illustration.gif - Pixabay.com
