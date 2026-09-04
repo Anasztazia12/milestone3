@@ -50,3 +50,15 @@ input {
     max-width: 180px;
 }
 
+.btn-success:hover {
+    background-color: #0d3b66;
+    border-color: #0d3b66;
+    color: #ffffff;
+}
+
+.btn-outline-success:hover {
+    background-color: #0d3b66;
+    border-color: #0d3b66;
+    color: #ffffff;
+}
+
