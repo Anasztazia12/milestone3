@@ -15,7 +15,8 @@ h1 {
     text-align: center;
 }
 
-form {
+form,
+.box {
     max-width: 350px;
     margin: 0 auto;
     background-color: #ffffff;
