@@ -1,11 +1,31 @@
+:root {
+    --main-color: #2e7d32;
+    --light-bg: #f4f4f4;
+    --border-color: #cccccc;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--light-bg);
     margin: 0;
     padding: 20px;
 }
 
 h1 {
     text-align: center;
+}
+
+form {
+    max-width: 350px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
 }
 
