@@ -63,14 +63,10 @@ input {
 /* top nav bar */
 .navbar {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 15px;
     margin-bottom: 15px;
-}
-
-.nav-links a {
-    margin-left: 10px;
 }
 
 /* logo + name in the navbar */
