@@ -7,7 +7,6 @@ Booking Manager - simple static website for managing clients, bookings and invoi
 - index.html - homepage
 - login.html - login page
 - signup.html - sign up page
-- dashboard.html - guest dashboard preview
 
 ## Plan
 
@@ -59,7 +58,6 @@ People pay for tools that reduce admin work, increase professionalism, and make 
 
 - As a new user, I want to sign up for an account, so that I can start managing my business.
 - As a returning user, I want to log in, so that I can access my dashboard.
-- As a visitor, I want to try the app as a guest, so that I can see what it offers before signing up.
 - As a business owner, I want to manage my clients and bookings in one place, so that I save time on admin.
 
 ## UX Design (5 Planes)
@@ -70,11 +68,11 @@ Business owners need a fast, simple way to manage clients and bookings without j
 
 ### 2. Scope
 
-Login, signup, a guest-accessible dashboard preview, and basic client/booking management. Invoicing is out of scope for now (see Future Improvements).
+Login, signup, and basic client/booking management. Invoicing is out of scope for now (see Future Improvements).
 
 ### 3. Structure
 
-Homepage links to login and signup, both link back to home and to each other, and a guest can preview the dashboard without an account.
+Homepage links to login and signup, and both link back to home and to each other.
 
 ### 4. Skeleton
 
