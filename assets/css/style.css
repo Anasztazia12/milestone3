@@ -124,6 +124,10 @@ body > p {
     text-align: center;
 }
 
+body > p a:hover {
+    color: #1b5e20;
+}
+
 /* bottom of every page */
 footer {
     text-align: center;
