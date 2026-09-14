@@ -149,6 +149,7 @@ Search cafes (open to everyone), view them on a map, sign up/login, register a n
 - view cafes on a map
 - user registration and login
 - register a new cafe
+- edit or delete a cafe you registered, in case it closed or was entered wrong
 - book a spot
 
 #### Should have
@@ -214,6 +215,7 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | has_power_outlets | BooleanField |
 | wifi_speed_mbps | IntegerField |
 | quiet_rating | IntegerField |
+| submitted_by | ForeignKey (User) - so only the user who added a cafe can edit or delete it |
 
 #### Spot
 
