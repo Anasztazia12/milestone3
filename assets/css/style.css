@@ -11,9 +11,6 @@ body {
     background-color: var(--light-bg);
     margin: 0;
     padding: 10px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 h1 {
@@ -182,8 +179,8 @@ body > p a:hover {
 /* bottom of every page */
 footer {
     text-align: center;
-    margin-top: auto;
-    padding-top: 40px;
+    margin-top: 10px;
+    padding-top: 10px;
     color: #666666;
     font-size: 14px;
 }
