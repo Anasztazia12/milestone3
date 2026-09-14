@@ -52,7 +52,9 @@
 
         var map = L.map('cafe-map').setView([52.5, -1.5], 6);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'WorkCafe &middot; Find a cafe or workspace nearby &middot; Map &copy; OpenStreetMap contributors'
+        }).addTo(map);
 
         for (var i = 0; i < cafes.length; i++) {
             L.marker([cafes[i].lat, cafes[i].lng]).addTo(map).bindPopup(cafes[i].name);
