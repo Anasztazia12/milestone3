@@ -70,6 +70,25 @@ Business owners need a fast, simple way to manage clients and bookings without j
 
 Login, signup, and basic client/booking management. Invoicing is out of scope for now (see Future Improvements).
 
+#### Must have
+
+- user registration and login
+- create, view, edit and delete clients
+- create, view, edit and delete bookings
+
+#### Should have
+
+- clear error messages on forms
+- consistent navigation and branding on every page
+
+#### Could have
+
+- a basic dashboard with counts (number of clients, upcoming bookings)
+
+#### Won't have (this version)
+
+- invoicing
+
 ### 3. Structure
 
 Homepage links to login and signup, and both link back to home and to each other.
