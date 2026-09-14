@@ -40,13 +40,18 @@ form {
 
 /* search box on the homepage, not a card like the login/signup forms */
 .search-form {
-    max-width: 400px;
+    max-width: 500px;
     margin: 15px auto;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 14px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     gap: 8px;
+}
+
+.search-form input {
+    font-size: 18px;
+    padding: 12px;
 }
 
 .signup-hint {
@@ -69,9 +74,6 @@ form {
     text-align: center;
 }
 
-.box .btn {
-    margin: 50px 5px 5px 5px;
-}
 
 .hero-image-wrap {
     background-color: #efdfd0;
@@ -103,12 +105,17 @@ input {
 /* top nav bar */
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 15px;
     margin: -10px -10px 20px -10px;
     padding: 12px;
     background-color: #4e342e;
+}
+
+.nav-links a {
+    margin-left: 8px;
 }
 
 /* logo + name in the navbar */
@@ -179,8 +186,9 @@ body > p a:hover {
 /* bottom of every page */
 footer {
     text-align: center;
-    margin-top: 10px;
-    padding-top: 10px;
-    color: #666666;
+    margin: 30px -10px -10px -10px;
+    padding: 15px 10px;
+    background-color: #d7ccc8;
+    color: #4e342e;
     font-size: 14px;
 }
