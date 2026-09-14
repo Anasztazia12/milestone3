@@ -293,9 +293,12 @@ footer {
     box-sizing: border-box;
 }
 
-.add-place-btn {
-    display: block;
-    max-width: 260px;
+.add-place-card {
+    max-width: 400px;
     margin: 0 auto 20px auto;
+    padding: 20px;
     text-align: center;
+    background-color: #efdfd0;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
 }
