@@ -197,53 +197,38 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 
 ### Database Models
 
-#### Client
+#### Workspace
 
 | Field | Type |
 | --- | --- |
 | name | CharField |
-| email | EmailField |
-| phone | CharField |
-| owner | ForeignKey (User) |
+| address | CharField |
+| has_wifi | BooleanField |
+| is_quiet | BooleanField |
+| notes | TextField |
+| submitted_by | ForeignKey (User) |
 
-#### Service
-
-| Field | Type |
-| --- | --- |
-| name | CharField |
-| duration_minutes | PositiveIntegerField |
-| price | DecimalField |
-| owner | ForeignKey (User) |
-
-#### Booking
+#### Favourite
 
 | Field | Type |
 | --- | --- |
-| date_time | DateTimeField |
-| status | CharField (pending, confirmed, completed, cancelled) |
-| client | ForeignKey (Client) |
-| service | ForeignKey (Service) |
-| owner | ForeignKey (User) |
+| user | ForeignKey (User) |
+| workspace | ForeignKey (Workspace) |
 
 ### Relationships
 
-- one User can own many Clients, Services and Bookings
-- one Client can have many Bookings
-- one Service can be used in many Bookings
-- each record stores which User owns it, so a user only ever sees their own data
-
-```text
-User ---< Client ---< Booking >--- Service
-```
+- anyone can search and view workspaces, logged in or not
+- a logged-in user can add a new workspace, and only they can edit or delete the ones they added
+- a logged-in user can save a workspace as a favourite
 
 ## Validation and Security Planning
 
-- Django's built-in authentication handles login, logout and password hashing
-- CSRF protection on all forms
-- pages that need an account are only available to logged-in users
-- a user can only view, edit or delete their own clients and bookings, not other users' data
-- the Django secret key and database credentials are kept out of the repository using an `env.py` file (gitignored)
-- DEBUG is turned off once the site is deployed, so error pages do not leak code or settings to visitors
+- Django already handles login, logout and password saving safely, so I don't write that part myself
+- forms use Django's built-in CSRF protection
+- only logged-in users can see the pages that need an account
+- a user can only edit or delete the workspaces they added, not other people's
+- passwords and the database login are never written in the code - they live in an `env.py` file that is not uploaded to GitHub
+- DEBUG is off in production so visitors never see error details
 
 ## Responsive Design Planning
 
