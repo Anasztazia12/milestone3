@@ -12,7 +12,6 @@ def home(request):
     params = {
         'q': 'London',
         'appid': api_key,
-        'units': 'metric',
     }
 
     response = requests.get(url, params=params)

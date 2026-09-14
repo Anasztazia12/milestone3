@@ -235,6 +235,10 @@ The layout is built mobile-first with a single centred column, so it naturally w
 - `python manage.py check` to catch configuration errors
 - HTML and CSS checked with the W3C/Jigsaw validators
 
+### Bugs Found
+
+- `python manage.py check` failed with `SyntaxError: '(' was never closed` in `core/models.py` - a closing bracket was missing on the `Spot.capacity` field. Fix: add the missing `)`.
+
 ## Future Improvements
 
 - Booking a desk or time slot at a workspace.
