@@ -6,11 +6,18 @@
 }
 
 /* page background */
+html {
+    background-color: var(--light-bg);
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
     background-color: var(--light-bg);
     margin: 0;
     padding: 10px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -114,8 +121,32 @@ input {
     background-color: #4e342e;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-auth .btn {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    padding: 8px 18px;
+}
+
 .nav-links a {
     margin-left: 8px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #efdfd0;
 }
 
 /* logo + name in the navbar */
@@ -183,12 +214,59 @@ body > p a:hover {
     color: #4e342e;
 }
 
-/* bottom of every page */
+/* bottom of every page, sticks to the bottom of the screen on short pages */
 footer {
     text-align: center;
     margin: 30px -10px -10px -10px;
+    margin-top: auto;
     padding: 15px 10px;
     background-color: #d7ccc8;
     color: #4e342e;
     font-size: 14px;
+}
+
+/* responsive - small screens */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .navbar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nav-links a {
+        margin: 5px;
+    }
+
+    .box {
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .hero-image {
+        max-width: 150px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form .btn {
+        width: 100%;
+    }
+
+    form {
+        max-width: 100%;
+    }
+}
+
+/* the leaflet map box on map.html */
+#cafe-map {
+    height: 400px;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
 }
