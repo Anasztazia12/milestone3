@@ -243,6 +243,7 @@ User ---< Client ---< Booking >--- Service
 - pages that need an account are only available to logged-in users
 - a user can only view, edit or delete their own clients and bookings, not other users' data
 - the Django secret key and database credentials are kept out of the repository using an `env.py` file (gitignored)
+- DEBUG is turned off once the site is deployed, so error pages do not leak code or settings to visitors
 
 ## Responsive Design Planning
 

@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Client, Service, Booking
+from .models import Workspace, Favourite
 
-admin.site.register(Client)
-admin.site.register(Service)
-admin.site.register(Booking)
+admin.site.register(Workspace)
+admin.site.register(Favourite)
