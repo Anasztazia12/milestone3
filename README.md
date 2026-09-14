@@ -206,23 +206,34 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | phone | CharField |
 | owner | ForeignKey (User) |
 
+#### Service
+
+| Field | Type |
+| --- | --- |
+| name | CharField |
+| duration_minutes | PositiveIntegerField |
+| price | DecimalField |
+| owner | ForeignKey (User) |
+
 #### Booking
 
 | Field | Type |
 | --- | --- |
-| title | CharField |
 | date_time | DateTimeField |
+| status | CharField (pending, confirmed, completed, cancelled) |
 | client | ForeignKey (Client) |
+| service | ForeignKey (Service) |
 | owner | ForeignKey (User) |
 
 ### Relationships
 
-- one User can own many Clients (one-to-many)
-- one Client can have many Bookings (one-to-many)
-- each Client and Booking stores which User owns it, so a user only ever sees their own data
+- one User can own many Clients, Services and Bookings
+- one Client can have many Bookings
+- one Service can be used in many Bookings
+- each record stores which User owns it, so a user only ever sees their own data
 
 ```text
-User ---< Client ---< Booking
+User ---< Client ---< Booking >--- Service
 ```
 
 ## Validation and Security Planning
