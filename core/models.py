@@ -19,7 +19,7 @@ class Cafe(models.Model):
 class Spot(models.Model):
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     spot_name = models.CharField(max_length=100)
-    capacity = models.IntegerField(default=1
+    capacity = models.IntegerField(default=1)
 
     def __str__(self):
         return self.cafe.name + ' - ' + self.spot_name
