@@ -9,24 +9,34 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico">
 </head>
 <body>
+    <!-- nav bar -->
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <img src="assets/images/logo.png" alt="WorkCafe logo" class="brand-image">
+        </a>
+    </nav>
+
     <!-- homepage content -->
     <div class="box">
         <div class="hero-text">
-            <a href="index.html"><img src="assets/images/logo.png" alt="WorkCafe logo" class="corner-image"></a>
-            <h1>WorkCafe</h1>
+            <h1>Find a cafe.<br><span>Get to work.</span></h1>
+
+            <p>Search for a nearby cafe or workspace with good wifi and a quiet corner.</p>
 
             <form class="search-form d-flex" role="search">
                 <input type="text" class="form-control" placeholder="Search for a cafe or workspace">
                 <button type="submit" class="btn btn-success">Search</button>
             </form>
 
-            <p>Find a <strong>cafe</strong> or <strong>workspace</strong> nearby where you can sit down and work.</p>
+            <p class="signup-hint">Sign up to see all cafes and save your favourites.</p>
 
             <a href="login.html" class="btn btn-success">Log in</a>
             <a href="signup.html" class="btn btn-outline-success">Sign up</a>
         </div>
 
-        <img src="assets/images/coffee.gif" alt="Find a place to work" class="hero-image">
+        <div class="hero-image-wrap">
+            <img src="assets/images/coffee.gif" alt="Find a place to work" class="hero-image">
+        </div>
     </div>
 
     <!-- footer -->
