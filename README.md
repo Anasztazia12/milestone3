@@ -1,23 +1,24 @@
 # milestone3
 
-Booking Manager - a web application for small business owners to manage their clients and bookings, built with Python and Django for my MS3 project.
+WorkCafe - a website where you can find a good cafe or workspace to work from, built with Python and Django for my MS3 project.
 
 ## Description
 
-Booking Manager is designed for small business owners, freelancers and local service providers - such as hairdressers, personal trainers, cleaners, gardeners, mechanics and tradespeople - who need a simple, centralised way to manage their clients and bookings.
+WorkCafe helps people find a place to sit down and work - a cafe or workspace with wifi, or a quiet spot to focus.
 
-Registered users can log in to their own account and manage:
+Anyone can search the list of workspaces, logged in or not.
 
-- their client list (create, view, edit and delete clients)
-- their bookings (create, view, edit and delete bookings), each linked to one of their clients
+Registered users can also:
 
-Visitors who do not have an account yet can sign up directly from the homepage.
+- add a new workspace to the list
+- edit or delete a workspace they added
+- save a workspace as a favourite
 
 ## Purpose
 
-Small business owners often keep client and booking information spread across notebooks, spreadsheets, messaging apps and their memory. This makes it easy to lose track of who a client is, when a booking is due, or what was agreed with them.
+Finding a decent place to work from is hard. Good spots get shared on random group chats or forgotten after one visit. There is no single place that lists them.
 
-Booking Manager brings this information together in one place, behind a login, so that each business owner only sees their own data.
+WorkCafe brings this into one simple, searchable list, and lets users add their own recommendations.
 
 ## Pages
 
@@ -27,14 +28,16 @@ Booking Manager brings this information together in one place, behind a login, s
 
 ## Technologies Used
 
-| Technology | Use in Booking Manager |
+| Technology | Use in WorkCafe |
 | --- | --- |
 | Python | Runs the backend Django code |
-| Django | Provides routing, templates, authentication, forms and database functionality |
+| Django | Routing, templates, authentication, forms and database |
 | HTML | Structures the website pages |
 | CSS | Controls the appearance and layout |
-| Bootstrap | Buttons and responsive layout helpers |
+| Bootstrap | Buttons and layout helpers |
 | PostgreSQL | The relational database used for the project |
+| requests | Calls external APIs from Python (weather) |
+| OpenWeatherMap API | Shows the current weather on the homepage |
 | Git | Tracks changes made during development |
 | GitHub | Stores the project repository and commit history |
 | Heroku | Planned deployment platform |
@@ -45,59 +48,49 @@ Full project plan: [MS3.docx](assets/images/document/MS3.docx)
 
 ### Who is it for?
 
-The application is for small business owners, freelancers, and local service providers - such as hairdressers, personal trainers, cleaners, gardeners, mechanics, and tradespeople - who need a simple, centralised way to manage clients, bookings, and daily business tasks.
+Anyone who works remotely or freelances and wants to find a cafe or workspace nearby - students, freelancers, remote workers, people between meetings.
 
 ### What problem are they experiencing?
 
 They often struggle with:
 
-- keeping track of clients across multiple apps
-- forgetting appointments or losing booking details
-- creating invoices manually every time
-- not having a clear overview of income and expenses
-- storing notes, documents, and quotes in scattered places
-- spending too much time on admin instead of actual work
+- not knowing which nearby cafes are actually good for working (wifi, quiet, plugs)
+- good recommendations getting lost in chats or forgotten
+- no single place to check before heading out
 
-This leads to lost revenue, missed opportunities, and unnecessary stress.
+This wastes time and leads to picking a bad spot.
 
 ### Why is a web application an appropriate response?
 
 A web application is ideal because it can:
 
-- provide centralised access from any device (phone, laptop, tablet)
-- manage bookings in real time
-- store client information securely
-- offer a simple overview of clients and appointments
-- update automatically without installing software
-- support basic invoicing as a planned future addition
+- be searched from any device before leaving the house
+- let anyone add a new place they found
+- keep the list up to date over time as more people contribute
+- work without needing an account, but reward users who sign up
 
-It gives users a single, organised workspace to run their business more efficiently.
-
-### What would make the solution valuable enough for someone to use or pay for?
+### What would make the solution valuable enough for someone to use?
 
 The solution becomes valuable when it offers:
 
-- reliable appointment scheduling
-- easy client management
-- a clear overview of upcoming bookings
-- a clean, intuitive interface that saves time
-- basic invoicing as the feature set grows
-
-People pay for tools that reduce admin work, increase professionalism, and make running a business easier.
+- a simple search that actually finds nearby places
+- honest, useful details (wifi, quiet, address)
+- an easy way to save a favourite for next time
+- an easy way to add a new place in seconds
 
 ### Problems and Solutions
 
-| Problem | Booking Manager Solution |
+| Problem | WorkCafe Solution |
 | --- | --- |
-| Client details are spread across notebooks and apps | All clients are stored in one place, per account |
-| Bookings are easy to forget | Bookings are listed and linked to the client they belong to |
-| Anyone could see or change another business's data | Data is only visible to the logged-in user who owns it |
-| Signing up feels like a big commitment | Sign up is a short form, ready to use immediately after |
+| Good workspaces are hard to find | All workspaces are searchable in one list |
+| Recommendations get lost in chats | Anyone can add a workspace so it is saved for everyone |
+| Hard to remember a good spot | Registered users can save favourites |
+| Anyone could edit anyone else's entry | Users can only edit or delete the workspaces they added |
 
 ### Business Goals
 
-- solve a realistic small-business admin problem
-- create a full-stack Django project with a relational database
+- solve a realistic everyday problem
+- build a full-stack Django project with a relational database
 - demonstrate authentication and CRUD functionality
 - keep the interface simple and easy to use
 - create a project that is realistic for MS3
@@ -106,76 +99,79 @@ People pay for tools that reduce admin work, increase professionalism, and make 
 
 ### First-time users
 
-- As a new user, I want to sign up for an account, so that I can start managing my business.
-- As a new user, I want a simple form, so that signing up does not take long.
+- As a new visitor, I want to search workspaces without an account, so that I can try the site before signing up.
+- As a new user, I want to sign up quickly, so that signing up does not take long.
 
 ### Returning users
 
-- As a returning user, I want to log in, so that I can access my own clients and bookings.
-- As a returning user, I want to see my own data only, so that my client information stays private.
+- As a returning user, I want to log in, so that I can add workspaces and save favourites.
+- As a returning user, I want to see my saved favourites, so that I do not have to search again.
 
 ### Frequent users
 
-- As a business owner, I want to add a new client quickly, so that I do not lose their details.
-- As a business owner, I want to add, edit and delete bookings, so that my schedule stays up to date.
-- As a business owner, I want to manage my clients and bookings in one place, so that I save time on admin.
+- As a frequent user, I want to add a new workspace, so that other people can find it too.
+- As a frequent user, I want to edit or delete a workspace I added, so that I can fix mistakes or remove it later.
+- As a frequent user, I want to see the current weather, so that I know if I should pick somewhere close by.
 
 ## UX Design (5 Planes)
 
 ### 1. Strategy
 
-Business owners need a fast, simple way to manage clients and bookings without juggling multiple apps.
+People need a fast, simple way to find a place to work, without having to ask around or guess.
 
 #### Target audience
 
-- hairdressers and salon owners
-- personal trainers
-- cleaners
-- gardeners
-- mechanics and tradespeople
+- students
+- freelancers
+- remote workers
+- anyone between meetings who needs wifi and a seat
 
 #### User needs
 
-- sign up and log in quickly
-- see only their own clients and bookings
-- add, edit and delete clients and bookings without confusion
+- search for a workspace quickly, without needing an account
+- sign up and log in easily
+- add and manage their own workspace entries
 
 ### 2. Scope
 
-Login, signup, and basic client/booking management. Invoicing is out of scope for now (see Future Improvements).
+Search for workspaces (open to everyone), sign up/login, add a workspace, edit/delete your own workspaces, save favourites. No booking or time slots.
 
 #### Must have
 
+- search and view the list of workspaces, no account needed
 - user registration and login
-- create, view, edit and delete clients
-- create, view, edit and delete bookings
+- create, view, edit and delete your own workspaces
 
 #### Should have
 
 - clear error messages on forms
 - consistent navigation and branding on every page
+- save a workspace as a favourite
 
 #### Could have
 
-- a basic dashboard with counts (number of clients, upcoming bookings)
+- current weather shown on the homepage
+- a small map showing where a workspace is
 
 #### Won't have (this version)
 
-- invoicing
+- booking a desk or time slot
+- payments
 
 ### 3. Structure
 
-Homepage links to login and signup, and both link back to home and to each other. Once logged in, a user reaches their own client and booking pages, which are not visible to anyone else.
+Homepage links to login and signup, and both link back to home and to each other. Anyone can search workspaces. Once logged in, a user can also add, edit, delete and favourite workspaces.
 
 ```text
-Booking Manager
+WorkCafe
 |
-|-- Home
+|-- Home (search workspaces)
 |-- Login
 |-- Sign up
 |-- (after login)
-    |-- Clients (create, view, edit, delete)
-    |-- Bookings (create, view, edit, delete)
+    |-- Add workspace
+    |-- Edit/delete my workspaces
+    |-- My favourites
 ```
 
 ### 4. Skeleton
@@ -225,7 +221,7 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 
 - Django already handles login, logout and password saving safely, so I don't write that part myself
 - forms use Django's built-in CSRF protection
-- only logged-in users can see the pages that need an account
+- only logged-in users can add, edit, delete or favourite workspaces
 - a user can only edit or delete the workspaces they added, not other people's
 - passwords and the database login are never written in the code - they live in an `env.py` file that is not uploaded to GitHub
 - DEBUG is off in production so visitors never see error details
@@ -236,22 +232,22 @@ The layout is built mobile-first with a single centred column, so it naturally w
 
 ## Testing Planning
 
-- manual testing: clicking through sign up, login, and (once built) the client/booking CRUD pages, checking the result matches what is expected
+- manual testing: clicking through search, sign up, login, and (once built) adding/editing/deleting a workspace, checking the result matches what is expected
 - `python manage.py check` to catch configuration errors
 - HTML and CSS checked with the W3C/Jigsaw validators
 
 ## Future Improvements
 
-- Full invoicing feature (creating, sending and tracking invoices) is planned for a later version and is not part of the current scope.
-- A dashboard with simple counts (number of clients, upcoming bookings).
+- Booking a desk or time slot at a workspace.
+- A small map showing where each workspace is, using OpenStreetMap.
 
 ## Changes During Development
 
 | Original Plan | Change | Reason |
 | --- | --- | --- |
-| A "Continue as Guest" preview dashboard was planned so visitors could see the app without registering | Removed entirely | Any page showing real client/booking data has to be behind login, so a guest preview without an account did not fit the security plan |
+| The project was going to be "Booking Manager" - a tool for a business owner to manage their own clients and bookings | Changed to "WorkCafe" - a shared, searchable list of workspaces anyone can add to | Better matches a project people would actually use, and still needs the same CRUD/auth/database skills |
+| A "Continue as Guest" preview dashboard was planned so visitors could see the app without registering | Removed entirely | Search itself is already open to everyone without an account, so a separate guest preview was not needed |
 | Static HTML pages were going to be styled further with more images and effects | Kept deliberately simple | The project is a Django + database CRUD app at its core - time is better spent on that than on extra front-end polish |
-| Business branding was called "Business App" | Renamed to "Booking Manager" | Matches the logo artwork used on the site |
 
 ## Credits
 
