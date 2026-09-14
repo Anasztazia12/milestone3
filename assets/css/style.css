@@ -31,6 +31,17 @@ form {
     border-radius: 4px;
 }
 
+/* search box on the homepage, not a card like the login/signup forms */
+.search-form {
+    max-width: 400px;
+    margin: 15px auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    gap: 8px;
+}
+
 /* full width homepage section, no card */
 .box {
     display: flex;
@@ -51,7 +62,7 @@ form {
 }
 
 .hero-image {
-    max-width: 320px;
+    max-width: 200px;
     width: 100%;
 }
 
