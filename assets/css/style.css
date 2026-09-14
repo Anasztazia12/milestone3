@@ -11,6 +11,9 @@ body {
     background-color: var(--light-bg);
     margin: 0;
     padding: 10px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -44,7 +47,7 @@ form {
 }
 
 .box .btn {
-    margin: 5px;
+    margin: 50px 5px 5px 5px;
 }
 
 .hero-image {
@@ -144,7 +147,8 @@ body > p a:hover {
 /* bottom of every page */
 footer {
     text-align: center;
-    margin-top: 15px;
+    margin-top: auto;
+    padding-top: 40px;
     color: #666666;
     font-size: 14px;
 }
