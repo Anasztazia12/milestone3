@@ -1,30 +1,32 @@
 # milestone3
 
-WorkCafe - a website where you can find a good cafe or workspace to work from, built with Python and Django for my MS3 project.
+WorkCafe - a website where you can find a good cafe to work from and book a spot, built with Python and Django for my MS3 project.
 
 ## Description
 
-WorkCafe helps people find a place to sit down and work - a cafe or workspace with wifi, or a quiet spot to focus.
+WorkCafe helps people find a cafe to sit down and work in - with wifi, power outlets and a quiet corner - and book a spot there.
 
-Anyone can search the list of workspaces, logged in or not.
+Anyone can search and view the list of cafes, logged in or not.
 
 Registered users can also:
 
-- add a new workspace to the list
-- edit or delete a workspace they added
-- save a workspace as a favourite
+- register a new cafe
+- book a spot at a cafe
+- view the cafes on a map
 
 ## Purpose
 
-Finding a decent place to work from is hard. Good spots get shared on random group chats or forgotten after one visit. There is no single place that lists them.
+Finding a decent place to work from is hard. Good spots get shared on random group chats or forgotten after one visit, and there is no way to know if there will be room when you get there.
 
-WorkCafe brings this into one simple, searchable list, and lets users add their own recommendations.
+WorkCafe brings this into one simple, searchable list with a map, and lets users book a spot in advance.
 
 ## Pages
 
-- index.html - homepage
+- index.html - homepage, with search and the current weather
 - login.html - login page
 - signup.html - sign up page
+- map.html - map showing all cafes
+- add-cafe.html - form to register a new cafe
 
 ## Technologies Used
 
@@ -38,6 +40,8 @@ WorkCafe brings this into one simple, searchable list, and lets users add their 
 | PostgreSQL | The relational database used for the project |
 | requests | Calls external APIs from Python (weather) |
 | OpenWeatherMap API | Shows the current weather on the homepage |
+| Leaflet | Displays the interactive cafe map |
+| OpenStreetMap | Provides the map tiles |
 | Git | Tracks changes made during development |
 | GitHub | Stores the project repository and commit history |
 | Heroku | Planned deployment platform |
@@ -54,9 +58,9 @@ Anyone who works remotely or freelances and wants to find a cafe or workspace ne
 
 They often struggle with:
 
-- not knowing which nearby cafes are actually good for working (wifi, quiet, plugs)
+- not knowing which nearby cafes are actually good for working (wifi, quiet, power outlets)
 - good recommendations getting lost in chats or forgotten
-- no single place to check before heading out
+- turning up somewhere with no free space
 
 This wastes time and leads to picking a bad spot.
 
@@ -65,8 +69,9 @@ This wastes time and leads to picking a bad spot.
 A web application is ideal because it can:
 
 - be searched from any device before leaving the house
+- show cafes on a map
 - let anyone add a new place they found
-- keep the list up to date over time as more people contribute
+- let a user book a spot ahead of time
 - work without needing an account, but reward users who sign up
 
 ### What would make the solution valuable enough for someone to use?
@@ -74,18 +79,18 @@ A web application is ideal because it can:
 The solution becomes valuable when it offers:
 
 - a simple search that actually finds nearby places
-- honest, useful details (wifi, quiet, address)
-- an easy way to save a favourite for next time
-- an easy way to add a new place in seconds
+- honest, useful details (wifi speed, power outlets, quiet rating)
+- a map so a user can see where a cafe actually is
+- an easy way to book a spot
 
 ### Problems and Solutions
 
 | Problem | WorkCafe Solution |
 | --- | --- |
-| Good workspaces are hard to find | All workspaces are searchable in one list |
-| Recommendations get lost in chats | Anyone can add a workspace so it is saved for everyone |
-| Hard to remember a good spot | Registered users can save favourites |
-| Anyone could edit anyone else's entry | Users can only edit or delete the workspaces they added |
+| Good cafes are hard to find | All cafes are searchable in one list and on a map |
+| Recommendations get lost in chats | Anyone can register a cafe so it is saved for everyone |
+| Turning up to a full cafe | A user can book a spot ahead of time |
+| Comparing cafes is hard | Each cafe lists wifi speed, power outlets and a quiet rating |
 
 ### Business Goals
 
@@ -99,25 +104,26 @@ The solution becomes valuable when it offers:
 
 ### First-time users
 
-- As a new visitor, I want to search workspaces without an account, so that I can try the site before signing up.
+- As a new visitor, I want to search cafes without an account, so that I can try the site before signing up.
+- As a new visitor, I want to see cafes on a map, so that I know where they actually are.
 - As a new user, I want to sign up quickly, so that signing up does not take long.
 
 ### Returning users
 
-- As a returning user, I want to log in, so that I can add workspaces and save favourites.
-- As a returning user, I want to see my saved favourites, so that I do not have to search again.
+- As a returning user, I want to log in, so that I can book a spot.
+- As a returning user, I want to see the current weather on the homepage, so that I know if I should pick somewhere close by.
 
 ### Frequent users
 
-- As a frequent user, I want to add a new workspace, so that other people can find it too.
-- As a frequent user, I want to edit or delete a workspace I added, so that I can fix mistakes or remove it later.
-- As a frequent user, I want to see the current weather, so that I know if I should pick somewhere close by.
+- As a frequent user, I want to register a new cafe, so that other people can find it too.
+- As a frequent user, I want to book a spot at a cafe for a specific date and time, so that I know I will have somewhere to sit.
+- As a frequent user, I want to cancel a booking I made, so that my schedule stays accurate.
 
 ## UX Design (5 Planes)
 
 ### 1. Strategy
 
-People need a fast, simple way to find a place to work, without having to ask around or guess.
+People need a fast, simple way to find a place to work and know they will have a spot, without having to ask around or guess.
 
 #### Target audience
 
@@ -128,55 +134,59 @@ People need a fast, simple way to find a place to work, without having to ask ar
 
 #### User needs
 
-- search for a workspace quickly, without needing an account
+- search for a cafe quickly, without needing an account
+- see cafes on a map
 - sign up and log in easily
-- add and manage their own workspace entries
+- book a spot ahead of time
 
 ### 2. Scope
 
-Search for workspaces (open to everyone), sign up/login, add a workspace, edit/delete your own workspaces, save favourites. No booking or time slots.
+Search cafes (open to everyone), view them on a map, sign up/login, register a new cafe, book a spot.
 
 #### Must have
 
-- search and view the list of workspaces, no account needed
+- search and view the list of cafes, no account needed
+- view cafes on a map
 - user registration and login
-- create, view, edit and delete your own workspaces
+- register a new cafe
+- book a spot
 
 #### Should have
 
 - clear error messages on forms
 - consistent navigation and branding on every page
-- save a workspace as a favourite
+- cancel a booking
 
 #### Could have
 
 - current weather shown on the homepage
-- a small map showing where a workspace is
+- save a cafe as a favourite
 
 #### Won't have (this version)
 
-- booking a desk or time slot
-- payments
+- online payments
+- live availability updates
 
 ### 3. Structure
 
-Homepage links to login and signup, and both link back to home and to each other. Anyone can search workspaces. Once logged in, a user can also add, edit, delete and favourite workspaces.
+Homepage links to login and signup, the map, and lets anyone search. Once logged in, a user can also register a cafe and book a spot.
 
 ```text
 WorkCafe
 |
-|-- Home (search workspaces)
+|-- Home (search, weather)
+|-- Map (all cafes marked)
 |-- Login
 |-- Sign up
+|-- Add a cafe
 |-- (after login)
-    |-- Add workspace
-    |-- Edit/delete my workspaces
-    |-- My favourites
+    |-- Book a spot
+    |-- My bookings
 ```
 
 ### 4. Skeleton
 
-Each page is a centred white card on a light grey background, with a nav bar at the top and a footer at the bottom, kept consistent across all pages.
+Each page is a centred white card on a light cream background, with a nav bar at the top (logo, Home, Map, Log in, Sign up) and a footer at the bottom, kept consistent across all pages.
 
 Early wireframe (wireframe image generation with Copilot, used for layout reference before building the pages):
 
@@ -184,7 +194,7 @@ Early wireframe (wireframe image generation with Copilot, used for layout refere
 
 ### 5. Surface
 
-Green and white colour scheme (matches the logo), Bootstrap buttons, simple sans-serif font.
+Coffee-shop colour scheme: warm brown and cream, with the Playfair Display font for headings and Georgia for body text.
 
 ## Database Design
 
@@ -192,37 +202,54 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 
 ### Database Models
 
-#### Workspace
+#### Cafe
 
 | Field | Type |
 | --- | --- |
 | name | CharField |
 | address | CharField |
-| has_wifi | BooleanField |
-| is_quiet | BooleanField |
-| notes | TextField |
-| submitted_by | ForeignKey (User) |
+| city | CharField |
+| latitude | FloatField |
+| longitude | FloatField |
+| has_power_outlets | BooleanField |
+| wifi_speed_mbps | IntegerField |
+| quiet_rating | IntegerField |
 
-#### Favourite
+#### Spot
+
+| Field | Type |
+| --- | --- |
+| cafe | ForeignKey (Cafe) |
+| spot_name | CharField |
+| capacity | IntegerField |
+
+#### Booking
 
 | Field | Type |
 | --- | --- |
 | user | ForeignKey (User) |
-| workspace | ForeignKey (Workspace) |
+| spot | ForeignKey (Spot) |
+| date | DateField |
+| start_time | TimeField |
+| status | CharField (confirmed, cancelled) |
 
 ### Relationships
 
-- anyone can search and view workspaces, logged in or not
-- a logged-in user can add a new workspace, and only they can edit or delete the ones they added
-- a logged-in user can save a workspace as a favourite
+- one Cafe can have many Spots
+- one Spot can have many Bookings
+- one User can have many Bookings, but can only view or cancel their own
+
+```text
+Cafe ---< Spot ---< Booking >--- User
+```
 
 ## Validation and Security Planning
 
 - Django already handles login, logout and password saving safely, so I don't write that part myself
 - forms use Django's built-in CSRF protection
-- only logged-in users can add, edit, delete or favourite workspaces
-- a user can only edit or delete the workspaces they added, not other people's
-- passwords and the database login are never written in the code - they live in an `env.py` file that is not uploaded to GitHub
+- only logged-in users can book a spot or register a cafe
+- a user can only view or cancel their own bookings, not other users' bookings
+- passwords, the database login and the weather API key are never written in the code - they live in an `env.py` file that is not uploaded to GitHub
 - DEBUG is off in production so visitors never see error details
 
 ## Responsive Design Planning
@@ -231,7 +258,7 @@ The layout is built mobile-first with a single centred column, so it naturally w
 
 ## Testing Planning
 
-- manual testing: clicking through search, sign up, login, and (once built) adding/editing/deleting a workspace, checking the result matches what is expected
+- manual testing: clicking through search, sign up, login, the map, and (once built) booking/cancelling a spot, checking the result matches what is expected
 - `python manage.py check` to catch configuration errors
 - HTML and CSS checked with the W3C/Jigsaw validators
 
@@ -241,17 +268,20 @@ The layout is built mobile-first with a single centred column, so it naturally w
 - On short pages, the footer looked like it was floating in the middle of the screen instead of sitting at the bottom. This was because the CSS that pins the footer to the bottom (`display: flex` on `body` with `margin-top: auto` on the footer) had been removed by mistake. Fix: added it back.
 - The homepage weather showed a strange, very high number (like 290 degrees) instead of a normal temperature. The OpenWeatherMap request was missing the `units` parameter, so it returned the temperature in Kelvin instead of Celsius. Fix: added `'units': 'metric'` to the request.
 - On the Map page, the Leaflet map box did not show at all - only a thin vertical line appeared where the box should be. The `body` uses `display: flex; flex-direction: column`, which was shrinking the map box down to zero width because it only had a `max-width` and no actual `width`. Fix: added `width: 100%` to the `#cafe-map` rule.
+- Seed data for two of the six starter cafes had latitude and longitude swapped, which would have placed them in the wrong spot on the map. Fix: corrected the values in `seed_cafes.py`.
 
 ## Future Improvements
 
-- Booking a desk or time slot at a workspace.
-- A small map showing where each workspace is, using OpenStreetMap.
+- Saving a cafe as a favourite.
+- Showing live availability (how many spots are free right now) using existing booking data.
+- Deleting your account.
 
 ## Changes During Development
 
 | Original Plan | Change | Reason |
 | --- | --- | --- |
-| The project was going to be "Booking Manager" - a tool for a business owner to manage their own clients and bookings | Changed to "WorkCafe" - a shared, searchable list of workspaces anyone can add to | Better matches a project people would actually use, and still needs the same CRUD/auth/database skills |
+| The project was going to be "Booking Manager" - a tool for a business owner to manage their own clients and bookings | Changed to "WorkCafe" - a shared, searchable list of cafes anyone can add to and book a spot at | Better matches a project people would actually use, and still needs the same CRUD/auth/database skills |
+| The site was going to let users save cafes as favourites but not book them | Added real bookings (Cafe, Spot and Booking models) instead of just favourites | Booking a spot is more useful and gives a fuller set of CRUD features |
 | A "Continue as Guest" preview dashboard was planned so visitors could see the app without registering | Removed entirely | Search itself is already open to everyone without an account, so a separate guest preview was not needed |
 | Static HTML pages were going to be styled further with more images and effects | Kept deliberately simple | The project is a Django + database CRUD app at its core - time is better spent on that than on extra front-end polish |
 
@@ -261,3 +291,4 @@ The layout is built mobile-first with a single centred column, so it naturally w
 - Logo - designed with Copilot
 - business-illustration.gif - Pixabay.com
 - coffee.gif - Pixabay.com
+- Map tiles - &copy; OpenStreetMap contributors
