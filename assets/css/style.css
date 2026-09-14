@@ -88,18 +88,6 @@ form {
     display: block;
 }
 
-/* logo inside the box on index */
-.corner-image {
-    display: block;
-    margin: 0 auto 10px auto;
-    max-width: 200px;
-    transition: transform 0.2s;
-}
-
-.corner-image:hover {
-    transform: scale(1.1);
-}
-
 /* form fields */
 label {
     display: block;
@@ -132,22 +120,24 @@ input {
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: inherit;
 }
 
-.brand-image {
-    max-width: 190px;
+.brand-text {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-.brand:hover .brand-image {
+.brand:hover .brand-text {
     opacity: 0.85;
 }
 
-/* small logo above the copyright text */
-.footer-image {
-    max-width: 100px;
+/* text logo above the copyright text */
+.footer-brand {
     display: block;
-    margin: 0 auto 5px auto;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-color);
 }
 
 .box p {
