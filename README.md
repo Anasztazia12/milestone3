@@ -178,9 +178,8 @@ WorkCafe
 
 Each page is a centred white card on a light grey background, with a nav bar at the top and a footer at the bottom, kept consistent across all pages.
 
-Early wireframes (wireframe image generation with Copilot, used for layout reference before building the pages):
+Early wireframe (wireframe image generation with Copilot, used for layout reference before building the pages):
 
-![Dashboard wireframe](assets/images/wireframe.png)
 ![Login wireframe](assets/images/wireframe2.png)
 
 ### 5. Surface
@@ -251,6 +250,7 @@ The layout is built mobile-first with a single centred column, so it naturally w
 
 ## Credits
 
-- Dashboard and login wireframe images - generated with Copilot
+- Login wireframe image - generated with Copilot
 - Logo - designed with Copilot
 - business-illustration.gif - Pixabay.com
+- coffee.gif - Pixabay.com
