@@ -23,16 +23,27 @@ body {
 h1 {
     text-align: center;
     margin-top: 0;
+    font-family: "Playfair Display", Georgia, serif;
 }
 
 .hero-text h1 {
-    font-size: 42px;
-    font-weight: bold;
-    line-height: 1.2;
+    font-size: 48px;
+    font-style: italic;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 12px;
 }
 
-.hero-text h1 span {
-    color: var(--main-color);
+.hero-text h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--main-color);
+    border-radius: 2px;
 }
 
 /* white card for the login/signup forms */
@@ -136,7 +147,15 @@ input {
 .nav-auth .btn {
     font-family: Georgia, serif;
     font-size: 16px;
-    padding: 8px 18px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-auth .btn:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
 
 .nav-links a {
@@ -158,6 +177,7 @@ input {
 }
 
 .brand-text {
+    font-family: "Playfair Display", Georgia, serif;
     color: #ffffff;
     font-size: 22px;
     font-weight: bold;
