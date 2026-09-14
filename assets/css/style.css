@@ -18,9 +18,8 @@ h1 {
     margin-top: 0;
 }
 
-/* white card for forms and boxes */
-form,
-.box {
+/* white card for the login/signup forms */
+form {
     max-width: 400px;
     margin: 0 auto;
     background-color: #ffffff;
@@ -29,8 +28,28 @@ form,
     border-radius: 4px;
 }
 
+/* full width homepage section, no card */
 .box {
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px 15px;
+}
+
+.hero-text {
+    max-width: 400px;
+    text-align: center;
+}
+
+.box .btn {
+    margin: 5px;
+}
+
+.hero-image {
+    max-width: 320px;
+    width: 100%;
 }
 
 /* logo inside the box on index */
@@ -91,12 +110,6 @@ input {
     max-width: 100px;
     display: block;
     margin: 0 auto 5px auto;
-}
-
-.manage-image {
-    max-width: 45%;
-    display: block;
-    margin: 0 auto 10px auto;
 }
 
 .box p {
