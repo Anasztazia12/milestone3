@@ -70,6 +70,12 @@ form {
 .search-form input {
     font-size: 18px;
     padding: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-form input:hover {
+    border-color: #4e342e;
+    box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.25);
 }
 
 .signup-hint {
@@ -156,7 +162,7 @@ input {
     font-size: 26px;
 }
 
-.nav-auth .btn {
+.navbar .btn {
     font-family: Georgia, serif;
     font-size: 16px;
     padding: 8px 20px;
@@ -165,19 +171,34 @@ input {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.nav-auth .btn:hover {
+.navbar .btn:hover {
     transform: translateY(-4px) scale(1.08);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.btn-how-it-works {
+    color: #efdfd0;
+    border: 1px solid #efdfd0;
+    background-color: transparent;
+}
+
+.btn-how-it-works:hover {
+    background-color: #efdfd0;
+    color: #4e342e;
 }
 
 .nav-links a {
     color: #ffffff;
     text-decoration: none;
     font-size: 17px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-links a:hover {
-    color: #efdfd0;
+    background-color: #efdfd0;
+    color: #4e342e;
 }
 
 /* logo + name in the navbar */
@@ -211,15 +232,24 @@ input {
     border-radius: 2px;
 }
 
+.brand-icon {
+    font-size: 22px;
+}
+
 .brand:hover .brand-text {
     opacity: 0.85;
 }
 
 /* text logo above the copyright text */
 .footer-brand {
-    display: inline-block;
-    font-family: "Playfair Display", Georgia, serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 18px;
+}
+
+.footer-text {
+    font-family: "Playfair Display", Georgia, serif;
     font-weight: bold;
     font-style: italic;
     color: var(--main-color);
@@ -227,7 +257,7 @@ input {
     padding-bottom: 6px;
 }
 
-.footer-brand::after {
+.footer-text::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -272,6 +302,10 @@ input {
 
 body > p {
     text-align: center;
+}
+
+body > p a {
+    color: var(--main-color);
 }
 
 body > p a:hover {
