@@ -96,11 +96,12 @@ form {
 }
 
 .weather-icon {
-    font-size: 60px;
+    font-size: 34px;
     line-height: 1;
-    background-color: #efdfd0;
+    color: #3a7ca5;
+    background-color: #d6ebf7;
     border-radius: 50%;
-    padding: 10px;
+    padding: 16px;
 }
 
 /* full width homepage section, no card */
@@ -425,7 +426,8 @@ footer {
     }
 
     .weather-icon {
-        font-size: 44px;
+        font-size: 26px;
+        padding: 12px;
     }
 
     form {

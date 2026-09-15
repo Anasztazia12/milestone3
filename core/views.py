@@ -2,23 +2,23 @@ import os
 import requests
 from django.shortcuts import render
 
-WEATHER_EMOJIS = {
-    '01': '☀️',
-    '02': '⛅',
-    '03': '☁️',
-    '04': '☁️',
-    '09': '\U0001f327️',
-    '10': '\U0001f327️',
-    '11': '⛈️',
-    '13': '❄️',
-    '50': '\U0001f32b️',
+WEATHER_ICONS = {
+    '01': 'bi-sun',
+    '02': 'bi-cloud-sun',
+    '03': 'bi-clouds',
+    '04': 'bi-clouds',
+    '09': 'bi-cloud-rain',
+    '10': 'bi-cloud-rain-heavy',
+    '11': 'bi-cloud-lightning-rain',
+    '13': 'bi-snow',
+    '50': 'bi-cloud-fog2',
 }
 
 
 def home(request):
     temperature = None
     weather_description = None
-    weather_emoji = None
+    weather_icon_class = None
 
     api_key = os.environ.get('WEATHER_API_KEY')
     url = 'https://api.openweathermap.org/data/2.5/weather'
@@ -34,12 +34,12 @@ def home(request):
         temperature = data['main']['temp']
         weather_description = data['weather'][0]['description']
         icon_code = data['weather'][0]['icon']
-        weather_emoji = WEATHER_EMOJIS.get(icon_code[:2], '')
+        weather_icon_class = WEATHER_ICONS.get(icon_code[:2], 'bi-cloud')
 
     context = {
         'temperature': temperature,
         'weather_description': weather_description,
-        'weather_emoji': weather_emoji,
+        'weather_icon_class': weather_icon_class,
     }
     return render(request, 'index.html', context)
 

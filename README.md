@@ -22,11 +22,11 @@ WorkCafe brings this into one simple, searchable list with a map, and lets users
 
 ## Pages
 
-- index.html - homepage, with search and the current weather
-- login.html - login page
-- signup.html - sign up page
-- map.html - map showing all cafes
-- add-cafe.html - form to register a new cafe
+- `/` - homepage, with search and the current weather
+- `/login/` - login page
+- `/signup/` - sign up page
+- `/map/` - map showing all cafes
+- `/add-cafe/` - form to register a new cafe
 
 ## Technologies Used
 
@@ -37,14 +37,18 @@ WorkCafe brings this into one simple, searchable list with a map, and lets users
 | HTML | Structures the website pages |
 | CSS | Controls the appearance and layout |
 | Bootstrap | Buttons and layout helpers |
+| Bootstrap Icons | Weather icon on the homepage |
 | PostgreSQL | The relational database used for the project |
 | requests | Calls external APIs from Python (weather) |
 | OpenWeatherMap API | Shows the current weather on the homepage |
 | Leaflet | Displays the interactive cafe map |
-| OpenStreetMap | Provides the map tiles |
+| Esri | Provides the map tiles |
+| gunicorn | Runs the Django app in production on Heroku |
+| WhiteNoise | Serves the CSS/image files in production |
+| dj-database-url | Reads the database connection details Heroku provides |
 | Git | Tracks changes made during development |
 | GitHub | Stores the project repository and commit history |
-| Heroku | Planned deployment platform |
+| Heroku | Hosts the deployed live site |
 
 ## Plan
 
@@ -272,13 +276,35 @@ The layout is built mobile-first with a single centred column, so it naturally w
 - On the Map page, the Leaflet map box did not show at all - only a thin vertical line appeared where the box should be. The `body` uses `display: flex; flex-direction: column`, which was shrinking the map box down to zero width because it only had a `max-width` and no actual `width`. Fix: added `width: 100%` to the `#cafe-map` rule.
 - Seed data for two of the six starter cafes had latitude and longitude swapped, which would have placed them in the wrong spot on the map. Fix: corrected the values in `seed_cafes.py`.
 - After deploying to Heroku, the Home link worked but the Map, Login, Sign up and Add a Place links all gave a 404 page. Only the homepage had ever been wired up as a real Django view and template - the other pages were still just static HTML files that Django did not know about. Fix: added a template, view and URL for each page (`/map/`, `/login/`, `/signup/`, `/add-cafe/`).
-- The homepage weather icon (loaded as an OpenWeatherMap PNG image) was almost invisible - the icons are light/white and blended into the light cream page background. Fix: replaced the image with an emoji that matches the weather condition instead, which is easy to see on the light background.
+- The homepage weather icon (loaded as an OpenWeatherMap PNG image) was almost invisible - the icons are light/white and blended into the light cream page background. An emoji was tried next, but emoji look different (and sometimes rough) depending on the visitor's device and browser. Fix: used a Bootstrap Icons icon instead, chosen based on the weather condition, on a light blue circle background so it stands out.
 - On the live Heroku site, the map tiles stopped loading and showed a "tile usage policy" warning image instead. The default OpenStreetMap tile server (`tile.openstreetmap.org`) is only meant for light testing, not for a deployed public app. Fix: switched the Leaflet tile layer to Esri's free World Street Map tiles, which do not need an API key and allow this kind of use.
+
+## Deployment
+
+The site is deployed to Heroku, connected to the `main` branch of this GitHub repository so every push automatically redeploys the live site.
+
+### Local setup
+
+1. Clone this repository and create a virtual environment
+2. `pip install -r requirements.txt`
+3. Create an `env.py` file in the project root (not committed to Git) with `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT` and `WEATHER_API_KEY`
+4. `python manage.py migrate`
+5. `python manage.py seed_cafes` to add the starter cafes
+6. `python manage.py runserver`
+
+### Heroku deployment
+
+1. Create a Heroku app and add the Heroku Postgres add-on
+2. Set the Config Vars on Heroku: `SECRET_KEY`, `WEATHER_API_KEY`, `ALLOWED_HOSTS` (the app's Heroku URL) - `DATABASE_URL` is set automatically by the Postgres add-on
+3. Connect the app to this GitHub repository and enable automatic deploys from `main`
+4. Migrations run automatically on every deploy through the `release` command in the `Procfile`
+5. Run `heroku run python manage.py seed_cafes` once, to add the starter cafes to the live database
 
 ## Future Improvements
 
 - Saving a cafe as a favourite.
 - Showing live availability (how many spots are free right now) using existing booking data.
+- Checking in to the cafe you are currently working from, and seeing who else is checked in there right now.
 - Deleting your account.
 
 ## Changes During Development
@@ -289,6 +315,7 @@ The layout is built mobile-first with a single centred column, so it naturally w
 | The site was going to let users save cafes as favourites but not book them | Added real bookings (Cafe, Spot and Booking models) instead of just favourites | Booking a spot is more useful and gives a fuller set of CRUD features |
 | A "Continue as Guest" preview dashboard was planned so visitors could see the app without registering | Removed entirely | Search itself is already open to everyone without an account, so a separate guest preview was not needed |
 | Static HTML pages were going to be styled further with more images and effects | Kept deliberately simple | The project is a Django + database CRUD app at its core - time is better spent on that than on extra front-end polish |
+| Only the homepage was going to be a real Django page at first, with the other pages as static HTML | Turned Map, Login, Sign up and Add a Place into real Django views, templates and URLs too | Needed so the navigation actually works once deployed, and so forms/pages can be connected to the database later |
 
 ## Credits
 
@@ -296,4 +323,4 @@ The layout is built mobile-first with a single centred column, so it naturally w
 - Logo - designed with Copilot
 - business-illustration.gif - Pixabay.com
 - coffee.gif - Pixabay.com
-- Map tiles - &copy; OpenStreetMap contributors
+- Map tiles - &copy; Esri
