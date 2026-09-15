@@ -295,6 +295,7 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 - Seeing who else is checked in at a cafe right now.
 - Letting a cafe show how many free spots it currently has.
 - Letting logged-in users ask each other if there is free space at a cafe right now, and reply yes/no.
+- Letting logged-in users leave a comment on any cafe (for example, to say it is still good or has closed down).
 - Deleting your account.
 
 ## Changes During Development
