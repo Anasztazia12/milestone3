@@ -29,3 +29,19 @@ def home(request):
         'weather_icon': weather_icon,
     }
     return render(request, 'index.html', context)
+
+
+def map_page(request):
+    return render(request, 'map.html')
+
+
+def login_page(request):
+    return render(request, 'login.html')
+
+
+def signup_page(request):
+    return render(request, 'signup.html')
+
+
+def add_cafe_page(request):
+    return render(request, 'add-cafe.html')

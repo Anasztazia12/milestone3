@@ -3,12 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>WorkCafe</title>
+    <title>Map - WorkCafe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body>
     <!-- nav bar -->
@@ -33,32 +34,22 @@
         </div>
     </nav>
 
-    <!-- homepage content -->
-    <div class="box">
-        <div class="hero-text">
-            <h1>WorkCafe</h1>
+    <!-- map page content -->
+    <h1>Cafe Map</h1>
 
-            <p>Search for a nearby cafe or workspace with good wifi and a quiet corner.</p>
+    <div class="map-top-row">
+        <form class="search-form d-flex" role="search">
+            <input type="text" class="form-control" placeholder="Search by name or city">
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
 
-            <form class="search-form d-flex" role="search">
-                <input type="text" class="form-control" placeholder="Search by name or city">
-                <button type="submit" class="btn btn-success">Search</button>
-            </form>
-
-            {% if weather_description %}
-                <p class="weather-line">
-                    <img src="https://openweathermap.org/img/wn/{{ weather_icon }}@2x.png" alt="{{ weather_description }}" class="weather-icon">
-                    Current weather in London: {{ temperature }}&deg;C, {{ weather_description }}
-                </p>
-            {% endif %}
-
-            <p class="signup-hint">Sign up to see all cafes and save your favourites.</p>
-        </div>
-
-        <div class="hero-image-wrap">
-            <img src="{% static 'images/coffee.gif' %}" alt="Find a place to work" class="hero-image">
+        <div class="add-place-card">
+            <p>Know a good spot that's not on the map?</p>
+            <a href="/add-cafe/" class="btn btn-success">+ Register a new place</a>
         </div>
     </div>
+
+    <div id="cafe-map"></div>
 
     <!-- how it works -->
     <div class="modal fade" id="howItWorksModal" tabindex="-1" aria-labelledby="howItWorksLabel" aria-hidden="true">
@@ -86,5 +77,28 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        var cafes = [
+            { name: "Prufrock Coffee", lat: 51.5204, lng: -0.1086 },
+            { name: "Grind Shoreditch", lat: 51.5256, lng: -0.0877 },
+            { name: "The Watch House", lat: 51.5002, lng: -0.0815 },
+            { name: "Foundation Coffee House", lat: 53.4832, lng: -2.2331 },
+            { name: "Takk Coffee Co.", lat: 53.4818, lng: -2.2312 },
+            { name: "Ezra & Gil", lat: 53.4827, lng: -2.2325 },
+            { name: "Strangers Coffee House", lat: 52.6321, lng: 1.2965 },
+            { name: "The Birdcage", lat: 52.6304, lng: 1.2937 }
+        ];
+
+        var map = L.map('cafe-map').setView([52.5, -1.5], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'WorkCafe &middot; Find a cafe or workspace nearby &middot; Map &copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        for (var i = 0; i < cafes.length; i++) {
+            L.marker([cafes[i].lat, cafes[i].lng]).addTo(map).bindPopup(cafes[i].name);
+        }
+    </script>
 </body>
 </html>
