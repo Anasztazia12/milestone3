@@ -308,6 +308,10 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 | Static HTML pages were going to be styled further with more images and effects | Kept deliberately simple | The project is a Django + database CRUD app at its core - time is better spent on that than on extra front-end polish |
 | Only the homepage was going to be a real Django page at first, with the other pages as static HTML | Turned Map, Login, Sign up and Add a Place into real Django views, templates and URLs too | Needed so the navigation actually works once deployed, and so forms/pages can be connected to the database later |
 
+## Reflection
+
+Things can work fine on my computer but break once the site is actually online - the map tiles and static files only caused problems after I deployed. If I did it again I would decide on the database models first, before building any pages, instead of changing my mind halfway through. I also learned that Django already does most of the login/signup work for you, and that testing every small change straight away makes bugs a lot easier to find.
+
 ## Credits
 
 - Login wireframe image - generated with Copilot

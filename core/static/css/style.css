@@ -205,6 +205,7 @@ input {
 
 /* top nav bar */
 .navbar {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -430,44 +431,58 @@ footer {
     .nav-menu {
         display: none;
         flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
-        padding-top: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        gap: 10px;
+        margin: 0;
+        background-color: #4e342e;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+        z-index: 20;
     }
 
     .nav-menu.open {
         display: flex;
     }
 
-    .nav-links {
+    .nav-links,
+    .nav-auth {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        text-align: center;
         width: 100%;
+        gap: 0;
     }
 
-    .nav-links a {
+    .nav-menu a,
+    .nav-menu button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 14px 5px;
         margin: 0;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        background: none;
+        color: #ffffff;
+        font-size: 18px;
     }
 
-    .nav-menu .btn {
-        padding: 6px 18px;
+    .nav-menu a:hover,
+    .nav-menu button:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
     }
 
-    .nav-auth {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 8px;
-        padding-top: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    .nav-menu .delete-account-link {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 5px;
+        color: #ff8080;
+    }
+
+    .nav-menu .delete-account-link:hover {
+        color: #ffb3b3;
     }
 
     .box {
