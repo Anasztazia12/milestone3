@@ -19,11 +19,12 @@ def home(request):
     temperature = None
     weather_description = None
     weather_icon_class = None
+    city = request.GET.get('city', 'London')
 
     api_key = os.environ.get('WEATHER_API_KEY')
     url = 'https://api.openweathermap.org/data/2.5/weather'
     params = {
-        'q': 'London',
+        'q': city,
         'appid': api_key,
         'units': 'metric',
     }
@@ -37,6 +38,7 @@ def home(request):
         weather_icon_class = WEATHER_ICONS.get(icon_code[:2], 'bi-cloud')
 
     context = {
+        'city': city,
         'temperature': temperature,
         'weather_description': weather_description,
         'weather_icon_class': weather_icon_class,

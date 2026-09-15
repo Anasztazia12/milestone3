@@ -88,20 +88,39 @@ form {
     font-size: 14px;
 }
 
+.weather-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 8px 10px;
+}
+
+.weather-search {
+    gap: 6px;
+}
+
+.weather-search input {
+    width: 140px;
+    margin-bottom: 0;
+}
+
 .weather-line {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 8px;
+    margin: 0;
+    white-space: nowrap;
 }
 
 .weather-icon {
-    font-size: 34px;
+    font-size: 18px;
     line-height: 1;
     color: #3a7ca5;
     background-color: #d6ebf7;
     border-radius: 50%;
-    padding: 16px;
+    padding: 8px;
 }
 
 /* full width homepage section, no card */
@@ -420,14 +439,8 @@ footer {
         width: 100%;
     }
 
-    .weather-line {
-        flex-direction: column;
-        gap: 2px;
-    }
-
-    .weather-icon {
-        font-size: 26px;
-        padding: 12px;
+    .weather-bar {
+        justify-content: center;
     }
 
     form {

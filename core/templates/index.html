@@ -34,6 +34,21 @@
         </div>
     </nav>
 
+    <!-- weather bar -->
+    <div class="weather-bar">
+        <form method="get" class="weather-search d-flex">
+            <input type="text" name="city" class="form-control form-control-sm" placeholder="Change city" value="{{ city }}">
+            <button type="submit" class="btn btn-sm btn-outline-success">Go</button>
+        </form>
+
+        {% if weather_description %}
+            <p class="weather-line">
+                <i class="bi {{ weather_icon_class }} weather-icon"></i>
+                {{ city }}: {{ temperature }}&deg;C, {{ weather_description }}
+            </p>
+        {% endif %}
+    </div>
+
     <!-- homepage content -->
     <div class="box">
         <div class="hero-text">
@@ -45,13 +60,6 @@
                 <input type="text" class="form-control" placeholder="Search by name or city">
                 <button type="submit" class="btn btn-success">Search</button>
             </form>
-
-            {% if weather_description %}
-                <p class="weather-line">
-                    <i class="bi {{ weather_icon_class }} weather-icon"></i>
-                    Current weather in London: {{ temperature }}&deg;C, {{ weather_description }}
-                </p>
-            {% endif %}
 
             <p class="signup-hint">Sign up to see all cafes and save your favourites.</p>
         </div>
