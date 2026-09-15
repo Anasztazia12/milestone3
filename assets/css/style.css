@@ -94,7 +94,7 @@ form {
     flex-direction: column;
     align-items: flex-end;
     gap: 8px;
-    padding: 10px;
+    padding: 6px 10px;
 }
 
 .weather-search {
@@ -135,7 +135,7 @@ form {
     align-items: center;
     justify-content: center;
     gap: 40px;
-    padding: 10px 15px 30px 15px;
+    padding: 0 15px 30px 15px;
 }
 
 .hero-text {
@@ -161,8 +161,8 @@ form {
     overflow: hidden;
     background-color: #ffffff;
     border-bottom: 1px solid var(--border-color);
-    padding: 14px 0;
-    margin: 0 0 10px 0;
+    padding: 10px 0;
+    margin: 0 0 4px 0;
 }
 
 .city-ticker-track {

@@ -150,23 +150,23 @@ Search cafes (open to everyone), view them on a map, sign up/login, register a n
 
 #### Must have (MVP)
 
-- search and view the list of cafes, no account needed
-- view cafes on a map
-- user registration and login
-- register a new cafe
-- edit or delete a cafe you registered, in case it closed or was entered wrong
-- book a spot
+- search and view the list of cafes, no account needed - done, but the map still uses a fixed list instead of reading from the database
+- view cafes on a map - done, but not database-driven yet
+- user registration and login - done
+- register a new cafe - not built yet
+- edit or delete a cafe you registered, in case it closed or was entered wrong - not built yet
+- book a spot - not built yet
 
 #### Should have
 
-- clear error messages on forms
-- consistent navigation and branding on every page
-- cancel a booking
+- clear error messages on forms - done for login and sign up
+- consistent navigation and branding on every page - done
+- cancel a booking - not built yet
 
 #### Could have
 
-- current weather shown on the homepage
-- save a cafe as a favourite
+- current weather shown on the homepage - done
+- save a cafe as a favourite - not built yet
 
 #### Won't have (this version)
 

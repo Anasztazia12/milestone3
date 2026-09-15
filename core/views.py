@@ -79,11 +79,11 @@ def signup_page(request):
         password2 = request.POST.get('password2')
 
         if password1 != password2:
-            error = 'Passwords do match'
+            error = 'Passwords do not match'
         elif User.objects.filter(username=username).exists():
             error = 'Username already taken'
         else:
-            user = User.objects.create_user(username=username, email=email, password=password1
+            user = User.objects.create_user(username=username, email=email, password=password1)
             login(request, user)
             return redirect('home')
 
