@@ -19,7 +19,7 @@ def home(request):
     temperature = None
     weather_description = None
     weather_icon_class = None
-    city = request.GET.get('city', 'London'
+    city = request.GET.get('city', 'London')
 
     api_key = os.environ.get('WEATHER_API_KEY')
     url = 'https://api.openweathermap.org/data/2.5/weather'
@@ -59,4 +59,4 @@ def signup_page(request):
 
 
 def add_cafe_page(request):
-    return render(request, 'signup.html')
+    return render(request, 'add-cafe.html')
