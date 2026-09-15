@@ -189,11 +189,11 @@ input {
 }
 
 .brand-text {
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: "Playfair Display", Georgia, serif;
     color: #ffffff;
     font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .brand:hover .brand-text {
@@ -203,8 +203,10 @@ input {
 /* text logo above the copyright text */
 .footer-brand {
     display: block;
+    font-family: "Playfair Display", Georgia, serif;
     font-size: 18px;
     font-weight: bold;
+    font-style: italic;
     color: var(--main-color);
 }
 
