@@ -171,9 +171,9 @@ input {
 }
 
 .nav-links a {
-    margin-left: 8px;
     color: #ffffff;
     text-decoration: none;
+    font-size: 17px;
 }
 
 .nav-links a:hover {
@@ -194,6 +194,21 @@ input {
     font-size: 22px;
     font-weight: bold;
     font-style: italic;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.brand-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: #efdfd0;
+    border-radius: 2px;
 }
 
 .brand:hover .brand-text {
@@ -202,12 +217,26 @@ input {
 
 /* text logo above the copyright text */
 .footer-brand {
-    display: block;
+    display: inline-block;
     font-family: "Playfair Display", Georgia, serif;
     font-size: 18px;
     font-weight: bold;
     font-style: italic;
     color: var(--main-color);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.footer-brand::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: var(--main-color);
+    border-radius: 2px;
 }
 
 .box p {
