@@ -93,16 +93,21 @@ form {
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 15px;
+    gap: 8px;
     padding: 8px 10px;
 }
 
 .weather-search {
     gap: 6px;
+    margin: 0;
+    max-width: none;
+    background: none;
+    padding: 0;
+    border: none;
 }
 
 .weather-search input {
-    width: 140px;
+    width: 100px;
     margin-bottom: 0;
 }
 
