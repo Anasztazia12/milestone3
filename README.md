@@ -45,7 +45,7 @@ WorkCafe brings this into one simple, searchable list with a map, and lets users
 | Esri | Provides the map tiles |
 | gunicorn | Runs the Django app in production on Heroku |
 | WhiteNoise | Serves the CSS/image files in production |
-| dj-database-url | Reads the database connection details Heroku provides |
+| dj-database-url | Reads Heroku's database URL |
 | Git | Tracks changes made during development |
 | GitHub | Stores the project repository and commit history |
 | Heroku | Hosts the deployed live site |
@@ -270,14 +270,14 @@ The layout is built mobile-first with a single centred column, so it naturally w
 
 ### Bugs Found
 
-- `python manage.py check` failed with `SyntaxError: '(' was never closed` in `core/models.py` - a closing bracket was missing on the `Spot.capacity` field. Fix: add the missing `)`.
-- On short pages, the footer looked like it was floating in the middle of the screen instead of sitting at the bottom. This was because the CSS that pins the footer to the bottom (`display: flex` on `body` with `margin-top: auto` on the footer) had been removed by mistake. Fix: added it back.
-- The homepage weather showed a strange, very high number (like 290 degrees) instead of a normal temperature. The OpenWeatherMap request was missing the `units` parameter, so it returned the temperature in Kelvin instead of Celsius. Fix: added `'units': 'metric'` to the request.
-- On the Map page, the Leaflet map box did not show at all - only a thin vertical line appeared where the box should be. The `body` uses `display: flex; flex-direction: column`, which was shrinking the map box down to zero width because it only had a `max-width` and no actual `width`. Fix: added `width: 100%` to the `#cafe-map` rule.
-- Seed data for two of the six starter cafes had latitude and longitude swapped, which would have placed them in the wrong spot on the map. Fix: corrected the values in `seed_cafes.py`.
-- After deploying to Heroku, the Home link worked but the Map, Login, Sign up and Add a Place links all gave a 404 page. Only the homepage had ever been wired up as a real Django view and template - the other pages were still just static HTML files that Django did not know about. Fix: added a template, view and URL for each page (`/map/`, `/login/`, `/signup/`, `/add-cafe/`).
-- The homepage weather icon (loaded as an OpenWeatherMap PNG image) was almost invisible - the icons are light/white and blended into the light cream page background. An emoji was tried next, but emoji look different (and sometimes rough) depending on the visitor's device and browser. Fix: used a Bootstrap Icons icon instead, chosen based on the weather condition, on a light blue circle background so it stands out.
-- On the live Heroku site, the map tiles stopped loading and showed a "tile usage policy" warning image instead. The default OpenStreetMap tile server (`tile.openstreetmap.org`) is only meant for light testing, not for a deployed public app. Fix: switched the Leaflet tile layer to Esri's free World Street Map tiles, which do not need an API key and allow this kind of use.
+- Missing closing bracket on `Spot.capacity` in `core/models.py` caused a SyntaxError. Fix: added the `)`.
+- Footer floated in the middle of short pages instead of sitting at the bottom - the flex CSS that pins it down had been removed by mistake. Fix: added it back.
+- Weather showed a strange number like 290 degrees - the API request was missing `units: metric`, so it returned Kelvin. Fix: added the units parameter.
+- The map box didn't show, just a thin line - it only had `max-width` set, no `width`, so the flex layout shrank it to nothing. Fix: added `width: 100%`.
+- Two of the seed cafes had latitude and longitude swapped, putting them in the wrong spot. Fix: corrected the values in `seed_cafes.py`.
+- On Heroku, the Map/Login/Sign up/Add a Place links gave a 404 - only the homepage had a real Django view and template. Fix: added a view, template and URL for each page.
+- The weather icon (an OpenWeatherMap image) was almost invisible on the light background, and an emoji looked different on every device. Fix: used a Bootstrap Icons icon instead, on a light blue circle so it stands out.
+- On the live site, the map tiles stopped loading and showed a usage policy warning - `tile.openstreetmap.org` isn't meant for a deployed public app. Fix: switched to Esri's free tiles, no key needed.
 
 ## Deployment
 
@@ -295,16 +295,18 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 ### Heroku deployment
 
 1. Create a Heroku app and add the Heroku Postgres add-on
-2. Set the Config Vars on Heroku: `SECRET_KEY`, `WEATHER_API_KEY`, `ALLOWED_HOSTS` (the app's Heroku URL) - `DATABASE_URL` is set automatically by the Postgres add-on
+2. Set the Config Vars: `SECRET_KEY`, `WEATHER_API_KEY`, `ALLOWED_HOSTS`
 3. Connect the app to this GitHub repository and enable automatic deploys from `main`
-4. Migrations run automatically on every deploy through the `release` command in the `Procfile`
-5. Run `heroku run python manage.py seed_cafes` once, to add the starter cafes to the live database
+4. Migrations run automatically on every deploy (see `Procfile`)
+5. Run `heroku run python manage.py seed_cafes` once for the starter cafes
 
 ## Future Improvements
 
-- Saving a cafe as a favourite.
-- Showing live availability (how many spots are free right now) using existing booking data.
-- Checking in to the cafe you are currently working from, and seeing who else is checked in there right now.
+- Saving a cafe as a favourite, and being able to remove it again.
+- Checking in ("I am here") to the cafe you are currently working from, and checking out ("I am out") when you leave.
+- Seeing who else is checked in at a cafe right now.
+- Letting a cafe show how many free spots it currently has.
+- Letting logged-in users ask each other if there is free space at a cafe right now, and reply yes/no.
 - Deleting your account.
 
 ## Changes During Development
