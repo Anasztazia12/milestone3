@@ -62,17 +62,17 @@
 
     <!-- weather bar -->
     <div class="weather-bar">
-        <form method="get" class="weather-search d-flex">
-            <input type="text" name="city" class="form-control form-control-sm" placeholder="Change city" value="{{ city }}">
-            <button type="submit" class="btn btn-sm btn-outline-success">Go</button>
-        </form>
-
         {% if weather_description %}
             <p class="weather-line">
                 <i class="bi {{ weather_icon_class }} weather-icon"></i>
                 {{ city }}: {{ temperature }}&deg;C, {{ weather_description }}
             </p>
         {% endif %}
+
+        <form method="get" class="weather-search d-flex">
+            <input type="text" name="city" class="form-control form-control-sm" placeholder="Change city" value="{{ city }}">
+            <button type="submit" class="btn btn-sm btn-outline-success">Go</button>
+        </form>
     </div>
 
     <!-- homepage content -->
