@@ -1,13 +1,17 @@
 /* colors */
 :root {
-    --main-color: #2e7d32;
-    --light-bg: #f4f4f4;
-    --border-color: #cccccc;
+    --main-color: #6f4e37;
+    --light-bg: #f5ebe0;
+    --border-color: #d7ccc8;
 }
 
 /* page background */
+html {
+    background-color: var(--light-bg);
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
     background-color: var(--light-bg);
     margin: 0;
     padding: 10px;
@@ -19,6 +23,27 @@ body {
 h1 {
     text-align: center;
     margin-top: 0;
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-style: italic;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.hero-text h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--main-color);
+    border-radius: 2px;
 }
 
 /* white card for the login/signup forms */
@@ -29,6 +54,38 @@ form {
     padding: 15px;
     border: 1px solid var(--border-color);
     border-radius: 4px;
+}
+
+/* search box on the homepage, not a card like the login/signup forms */
+.search-form {
+    max-width: 600px;
+    margin: 15px auto;
+    background-color: #ffffff;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    gap: 8px;
+}
+
+.search-form input {
+    font-size: 20px;
+    padding: 14px 16px;
+    margin-bottom: 0;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-form .btn {
+    padding: 14px 20px;
+}
+
+.search-form input:hover {
+    border-color: #4e342e;
+    box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.25);
+}
+
+.signup-hint {
+    color: #666666;
+    font-size: 14px;
 }
 
 /* full width homepage section, no card */
@@ -46,25 +103,17 @@ form {
     text-align: center;
 }
 
-.box .btn {
-    margin: 50px 5px 5px 5px;
+
+.hero-image-wrap {
+    background-color: #efdfd0;
+    border-radius: 20px;
+    padding: 30px;
 }
 
 .hero-image {
-    max-width: 320px;
-    width: 100%;
-}
-
-/* logo inside the box on index */
-.corner-image {
-    display: block;
-    margin: 0 auto 10px auto;
     max-width: 200px;
-    transition: transform 0.2s;
-}
-
-.corner-image:hover {
-    transform: scale(1.1);
+    width: 100%;
+    display: block;
 }
 
 /* form fields */
@@ -85,10 +134,76 @@ input {
 /* top nav bar */
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 15px;
-    margin-bottom: 15px;
+    margin: -10px -10px 20px -10px;
+    padding: 12px;
+    background-color: #4e342e;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 20px;
+    margin-left: 25px;
+}
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* hamburger button, hidden on bigger screens */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+.navbar .btn {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.navbar .btn:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.btn-how-it-works {
+    color: #efdfd0;
+    border: 1px solid #efdfd0;
+    background-color: transparent;
+}
+
+.btn-how-it-works:hover {
+    background-color: #efdfd0;
+    color: #4e342e;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover {
+    background-color: #efdfd0;
+    color: #4e342e;
 }
 
 /* logo + name in the navbar */
@@ -97,22 +212,66 @@ input {
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: inherit;
 }
 
-.brand-image {
-    max-width: 190px;
+.brand-text {
+    font-family: "Playfair Display", Georgia, serif;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 6px;
 }
 
-.brand:hover .brand-image {
+.brand-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: #efdfd0;
+    border-radius: 2px;
+}
+
+.brand-icon {
+    font-size: 22px;
+}
+
+.brand:hover .brand-text {
     opacity: 0.85;
 }
 
-/* small logo above the copyright text */
-.footer-image {
-    max-width: 100px;
-    display: block;
-    margin: 0 auto 5px auto;
+/* text logo above the copyright text */
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 18px;
+}
+
+.footer-text {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--main-color);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.footer-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: var(--main-color);
+    border-radius: 2px;
 }
 
 .box p {
@@ -120,19 +279,29 @@ input {
 }
 
 .box p strong {
-    color: #1b5e20;
+    color: #4e342e;
 }
 
-/* button hover colors */
+/* button colors, coffee theme instead of bootstrap green */
+.btn-success {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.btn-outline-success {
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
 .btn-success:hover {
-    background-color: #0d3b66;
-    border-color: #0d3b66;
+    background-color: #4e342e;
+    border-color: #4e342e;
     color: #ffffff;
 }
 
 .btn-outline-success:hover {
-    background-color: #0d3b66;
-    border-color: #0d3b66;
+    background-color: #4e342e;
+    border-color: #4e342e;
     color: #ffffff;
 }
 
@@ -140,15 +309,145 @@ body > p {
     text-align: center;
 }
 
-body > p a:hover {
-    color: #1b5e20;
+body > p a {
+    color: var(--main-color);
 }
 
-/* bottom of every page */
+body > p a:hover {
+    color: #4e342e;
+}
+
+/* bottom of every page, sticks to the bottom of the screen on short pages */
 footer {
     text-align: center;
+    margin: 30px -10px -10px -10px;
     margin-top: auto;
-    padding-top: 40px;
-    color: #666666;
+    padding: 15px 10px;
+    background-color: #d7ccc8;
+    color: #4e342e;
     font-size: 14px;
+}
+
+/* responsive - small screens */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links a {
+        margin: 5px;
+    }
+
+    .nav-auth {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .box {
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .hero-image {
+        max-width: 150px;
+    }
+
+    .hero-image-wrap {
+        order: -1;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form .btn {
+        width: 100%;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    #cafe-map {
+        height: 300px;
+    }
+
+    .map-top-row .search-form,
+    .map-top-row .add-place-card {
+        max-width: 100%;
+    }
+}
+
+/* the leaflet map box on map.html */
+#cafe-map {
+    width: 100%;
+    max-width: 1100px;
+    height: 500px;
+    margin: 0 auto 20px auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.add-place-card {
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #efdfd0;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.map-top-row {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.map-top-row .search-form,
+.map-top-row .add-place-card {
+    margin: 15px 0;
+    flex: 0 0 auto;
+}
+
+.map-top-row .search-form {
+    flex-basis: 600px;
+    max-width: 600px;
+}
+
+.map-top-row .add-place-card {
+    flex-basis: 360px;
+    max-width: 360px;
 }
