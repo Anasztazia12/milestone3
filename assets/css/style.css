@@ -269,6 +269,10 @@ footer {
         max-width: 150px;
     }
 
+    .hero-image-wrap {
+        order: -1;
+    }
+
     .search-form {
         flex-direction: column;
     }
