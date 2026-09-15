@@ -11,6 +11,7 @@ class Cafe(models.Model):
     has_power_outlets = models.BooleanField(default=True)
     wifi_speed_mbps = models.IntegerField(default=50)
     quiet_rating = models.IntegerField(default=3)
+    members_only = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name + " (" + self.city + ")"
