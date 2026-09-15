@@ -90,6 +90,11 @@ def signup_page(request):
     return render(request, 'signup.html', {'error': error})
 
 
+def logout_page(request):
+    logout(request)
+    return redirect('home')
+
+
 def delete_account(request):
     if request.method == 'POST':
         request.user.delete()

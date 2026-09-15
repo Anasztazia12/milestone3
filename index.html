@@ -17,7 +17,7 @@
             <span class="brand-text">WorkCafe</span>
         </a>
 
-        <button type="button" class="nav-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('open')">&#9776;</button>
+        <button type="button" class="nav-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('open'); this.innerHTML = document.querySelector('.nav-menu').classList.contains('open') ? '&times;' : '&#9776;';">&#9776;</button>
 
         <div class="nav-menu">
             <div class="nav-links">

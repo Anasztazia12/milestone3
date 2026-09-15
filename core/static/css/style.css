@@ -230,6 +230,19 @@ input {
     gap: 10px;
 }
 
+.delete-account-link {
+    color: #ff8080;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.delete-account-link:hover {
+    color: #ffb3b3;
+}
+
 /* hamburger button, hidden on bigger screens */
 .nav-toggle {
     display: none;
@@ -432,10 +445,12 @@ footer {
     }
 
     .nav-links {
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 8px;
         text-align: center;
+        width: 100%;
     }
 
     .nav-links a {
