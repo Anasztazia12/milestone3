@@ -132,16 +132,28 @@ input {
     background-color: #4e342e;
 }
 
-.nav-left {
+.nav-menu {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex: 1;
     gap: 20px;
+    margin-left: 25px;
 }
 
 .nav-auth {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+/* hamburger button, hidden on bigger screens */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 26px;
 }
 
 .nav-auth .btn {
@@ -177,10 +189,11 @@ input {
 }
 
 .brand-text {
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "Poppins", Arial, sans-serif;
     color: #ffffff;
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .brand:hover .brand-text {
@@ -252,12 +265,38 @@ footer {
     }
 
     .navbar {
-        justify-content: center;
+        justify-content: space-between;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-links {
+        flex-direction: column;
         text-align: center;
     }
 
     .nav-links a {
         margin: 5px;
+    }
+
+    .nav-auth {
+        flex-direction: column;
+        width: 100%;
     }
 
     .box {
