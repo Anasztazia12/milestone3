@@ -47,7 +47,7 @@
 
             {% if weather_description %}
                 <p class="weather-line">
-                    <img src="https://openweathermap.org/img/wn/{{ weather_icon }}@2x.png" alt="{{ weather_description }}" class="weather-icon">
+                    <span class="weather-icon">{{ weather_emoji }}</span>
                     Current weather in London: {{ temperature }}&deg;C, {{ weather_description }}
                 </p>
             {% endif %}

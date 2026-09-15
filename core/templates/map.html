@@ -92,8 +92,8 @@
 
         var map = L.map('cafe-map').setView([52.5, -1.5], 6);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'WorkCafe &middot; Find a cafe or workspace nearby &middot; Map &copy; OpenStreetMap contributors'
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'WorkCafe &middot; Find a cafe or workspace nearby &middot; Tiles &copy; Esri'
         }).addTo(map);
 
         for (var i = 0; i < cafes.length; i++) {

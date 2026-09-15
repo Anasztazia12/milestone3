@@ -272,6 +272,8 @@ The layout is built mobile-first with a single centred column, so it naturally w
 - On the Map page, the Leaflet map box did not show at all - only a thin vertical line appeared where the box should be. The `body` uses `display: flex; flex-direction: column`, which was shrinking the map box down to zero width because it only had a `max-width` and no actual `width`. Fix: added `width: 100%` to the `#cafe-map` rule.
 - Seed data for two of the six starter cafes had latitude and longitude swapped, which would have placed them in the wrong spot on the map. Fix: corrected the values in `seed_cafes.py`.
 - After deploying to Heroku, the Home link worked but the Map, Login, Sign up and Add a Place links all gave a 404 page. Only the homepage had ever been wired up as a real Django view and template - the other pages were still just static HTML files that Django did not know about. Fix: added a template, view and URL for each page (`/map/`, `/login/`, `/signup/`, `/add-cafe/`).
+- The homepage weather icon (loaded as an OpenWeatherMap PNG image) was almost invisible - the icons are light/white and blended into the light cream page background. Fix: replaced the image with an emoji that matches the weather condition instead, which is easy to see on the light background.
+- On the live Heroku site, the map tiles stopped loading and showed a "tile usage policy" warning image instead. The default OpenStreetMap tile server (`tile.openstreetmap.org`) is only meant for light testing, not for a deployed public app. Fix: switched the Leaflet tile layer to Esri's free World Street Map tiles, which do not need an API key and allow this kind of use.
 
 ## Future Improvements
 

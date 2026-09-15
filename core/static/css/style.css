@@ -92,12 +92,12 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 10px;
 }
 
 .weather-icon {
-    width: 40px;
-    height: 40px;
+    font-size: 60px;
+    line-height: 1;
 }
 
 /* full width homepage section, no card */
