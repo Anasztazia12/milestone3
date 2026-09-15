@@ -271,6 +271,7 @@ The layout is built mobile-first with a single centred column, so it naturally w
 - The homepage weather showed a strange, very high number (like 290 degrees) instead of a normal temperature. The OpenWeatherMap request was missing the `units` parameter, so it returned the temperature in Kelvin instead of Celsius. Fix: added `'units': 'metric'` to the request.
 - On the Map page, the Leaflet map box did not show at all - only a thin vertical line appeared where the box should be. The `body` uses `display: flex; flex-direction: column`, which was shrinking the map box down to zero width because it only had a `max-width` and no actual `width`. Fix: added `width: 100%` to the `#cafe-map` rule.
 - Seed data for two of the six starter cafes had latitude and longitude swapped, which would have placed them in the wrong spot on the map. Fix: corrected the values in `seed_cafes.py`.
+- After deploying to Heroku, the Home link worked but the Map, Login, Sign up and Add a Place links all gave a 404 page. Only the homepage had ever been wired up as a real Django view and template - the other pages were still just static HTML files that Django did not know about. Fix: added a template, view and URL for each page (`/map/`, `/login/`, `/signup/`, `/add-cafe/`).
 
 ## Future Improvements
 
