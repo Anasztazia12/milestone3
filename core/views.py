@@ -1,7 +1,8 @@
 import os
 import requests
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 WEATHER_ICONS = {
     '01': 'bi-sun',
@@ -69,7 +70,33 @@ def login_page(request):
 
 
 def signup_page(request):
-    return render(request, 'signup.html')
+    error = None
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+
+        if password1 != password2:
+            error = 'Passwords do match'
+        elif User.objects.filter(username=username).exists():
+            error = 'Username already taken'
+        else:
+            user = User.objects.create_user(username=username, email=email, password=password1
+            login(request, user)
+            return redirect('home')
+
+    return render(request, 'signup.html', {'error': error})
+
+
+def delete_account(request):
+    if request.method == 'POST':
+        request.user.delete()
+        logout(request)
+        return redirect('home')
+
+    return render(request, 'delete_account.html')
 
 
 def add_cafe_page(request):

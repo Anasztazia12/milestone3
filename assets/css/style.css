@@ -135,7 +135,7 @@ form {
     align-items: center;
     justify-content: center;
     gap: 40px;
-    padding: 30px 15px;
+    padding: 10px 15px 30px 15px;
 }
 
 .hero-text {
@@ -456,7 +456,7 @@ footer {
     }
 
     .box {
-        padding: 20px 10px;
+        padding: 5px 10px 20px 10px;
         gap: 20px;
     }
 
@@ -478,6 +478,24 @@ footer {
 
     form {
         max-width: 100%;
+    }
+
+    .weather-bar {
+        align-items: center;
+    }
+
+    .weather-line {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .weather-icon {
+        font-size: 28px;
+        padding: 10px;
+    }
+
+    .city-ticker-track span {
+        font-size: 14px;
     }
 
     #cafe-map {
