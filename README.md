@@ -314,3 +314,4 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 - business-illustration.gif - Pixabay.com
 - coffee.gif - Pixabay.com
 - Map tiles - &copy; Esri
+- Cafe names and addresses used in the seed data were gathered with the help of Google Gemini
