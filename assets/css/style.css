@@ -58,7 +58,7 @@ form {
 
 /* search box on the homepage, not a card like the login/signup forms */
 .search-form {
-    max-width: 500px;
+    max-width: 600px;
     margin: 15px auto;
     background-color: #ffffff;
     padding: 14px;
@@ -68,9 +68,14 @@ form {
 }
 
 .search-form input {
-    font-size: 18px;
-    padding: 12px;
+    font-size: 20px;
+    padding: 14px 16px;
+    margin-bottom: 0;
     transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-form .btn {
+    padding: 14px 20px;
 }
 
 .search-form input:hover {
@@ -388,13 +393,22 @@ footer {
     form {
         max-width: 100%;
     }
+
+    #cafe-map {
+        height: 300px;
+    }
+
+    .map-top-row .search-form,
+    .map-top-row .add-place-card {
+        max-width: 100%;
+    }
 }
 
 /* the leaflet map box on map.html */
 #cafe-map {
     width: 100%;
-    max-width: 700px;
-    height: 400px;
+    max-width: 1100px;
+    height: 500px;
     margin: 0 auto 20px auto;
     border: 1px solid var(--border-color);
     border-radius: 6px;
@@ -409,4 +423,31 @@ footer {
     background-color: #efdfd0;
     border: 1px solid var(--border-color);
     border-radius: 10px;
+}
+
+.map-top-row {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.map-top-row .search-form,
+.map-top-row .add-place-card {
+    margin: 15px 0;
+    flex: 0 0 auto;
+}
+
+.map-top-row .search-form {
+    flex-basis: 600px;
+    max-width: 600px;
+}
+
+.map-top-row .add-place-card {
+    flex-basis: 360px;
+    max-width: 360px;
 }

@@ -62,6 +62,26 @@ CAFES = [
         'wifi_speed_mbps': 75,
         'quiet_rating': 3,
     },
+    {
+        'name': 'Strangers Coffee House',
+        'address': '21 Wensum St',
+        'city': 'Norwich',
+        'latitude': 52.6321,
+        'longitude': 1.2965,
+        'has_power_outlets': True,
+        'wifi_speed_mbps': 65,
+        'quiet_rating': 3,
+    },
+    {
+        'name': 'The Birdcage',
+        'address': '23 Pottergate',
+        'city': 'Norwich',
+        'latitude': 52.6304,
+        'longitude': 1.2937,
+        'has_power_outlets': False,
+        'wifi_speed_mbps': 40,
+        'quiet_rating': 4,
+    },
 ]
 
 

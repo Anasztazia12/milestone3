@@ -24,6 +24,7 @@
             <div class="nav-links">
                 <a href="index.html" class="fw-semibold mx-2">Home</a>
                 <a href="map.html" class="fw-semibold mx-2">Map</a>
+                <button type="button" class="btn btn-how-it-works mx-2" data-bs-toggle="modal" data-bs-target="#howItWorksModal">How it works</button>
             </div>
             <div class="nav-auth">
                 <a href="login.html" class="btn btn-outline-light">Log in</a>
@@ -35,17 +36,35 @@
     <!-- map page content -->
     <h1>Cafe Map</h1>
 
-    <form class="search-form d-flex" role="search">
-        <input type="text" class="form-control" placeholder="Search by name or city">
-        <button type="submit" class="btn btn-success">Search</button>
-    </form>
+    <div class="map-top-row">
+        <form class="search-form d-flex" role="search">
+            <input type="text" class="form-control" placeholder="Search by name or city">
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
 
-    <div class="add-place-card">
-        <p>Know a good spot that's not on the map?</p>
-        <a href="add-cafe.html" class="btn btn-success">+ Register a new place</a>
+        <div class="add-place-card">
+            <p>Know a good spot that's not on the map?</p>
+            <a href="add-cafe.html" class="btn btn-success">+ Register a new place</a>
+        </div>
     </div>
 
     <div id="cafe-map"></div>
+
+    <!-- how it works -->
+    <div class="modal fade" id="howItWorksModal" tabindex="-1" aria-labelledby="howItWorksLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="howItWorksLabel">How WorkCafe works</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>WorkCafe helps you find a cafe where you can actually get some work done - somewhere with decent wifi, a power outlet and a quiet corner, not just any coffee shop.</p>
+                    <p>You can search cafes and look at the map without needing an account. If you sign up, you can also register a new cafe you've found and book a spot in advance, so you know you'll have somewhere to sit when you get there.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- footer -->
     <footer>
@@ -56,6 +75,7 @@
         <p>Copyright &copy; 2026 WorkCafe</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script>
         var cafes = [
@@ -64,7 +84,9 @@
             { name: "The Watch House", lat: 51.5002, lng: -0.0815 },
             { name: "Foundation Coffee House", lat: 53.4832, lng: -2.2331 },
             { name: "Takk Coffee Co.", lat: 53.4818, lng: -2.2312 },
-            { name: "Ezra & Gil", lat: 53.4827, lng: -2.2325 }
+            { name: "Ezra & Gil", lat: 53.4827, lng: -2.2325 },
+            { name: "Strangers Coffee House", lat: 52.6321, lng: 1.2965 },
+            { name: "The Birdcage", lat: 52.6304, lng: 1.2937 }
         ];
 
         var map = L.map('cafe-map').setView([52.5, -1.5], 6);
