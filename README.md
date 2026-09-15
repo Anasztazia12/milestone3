@@ -4,15 +4,16 @@ WorkCafe - a website where you can find a good cafe to work from and book a spot
 
 ## Description
 
-WorkCafe helps people find a cafe to sit down and work in - with wifi, power outlets and a quiet corner - and book a spot there.
+WorkCafe is a website for finding a cafe to work from - somewhere with decent wifi, a power outlet and a quiet corner - and booking a spot there.
 
-Anyone can search and view the list of cafes, logged in or not.
+It is designed for students, freelancers, remote workers and anyone who needs a place to sit down and get some work done for a few hours.
+
+Anyone can search cafes by name or city and view them on a map, without needing an account. Each cafe listing shows its wifi speed, whether it has power outlets, and how quiet it usually is.
 
 Registered users can also:
 
 - register a new cafe
 - book a spot at a cafe
-- view the cafes on a map
 
 ## Purpose
 
@@ -147,7 +148,7 @@ People need a fast, simple way to find a place to work and know they will have a
 
 Search cafes (open to everyone), view them on a map, sign up/login, register a new cafe, book a spot.
 
-#### Must have
+#### Must have (MVP)
 
 - search and view the list of cafes, no account needed
 - view cafes on a map
@@ -262,22 +263,9 @@ Cafe ---< Spot ---< Booking >--- User
 
 The layout is built mobile-first with a single centred column, so it naturally works on mobile, tablet and desktop without a separate layout for each size.
 
-## Testing Planning
+## Testing
 
-- manual testing: clicking through search, sign up, login, the map, and (once built) booking/cancelling a spot, checking the result matches what is expected
-- `python manage.py check` to catch configuration errors
-- HTML and CSS checked with the W3C/Jigsaw validators
-
-### Bugs Found
-
-- Missing closing bracket on `Spot.capacity` in `core/models.py` caused a SyntaxError. Fix: added the `)`.
-- Footer floated in the middle of short pages instead of sitting at the bottom - the flex CSS that pins it down had been removed by mistake. Fix: added it back.
-- Weather showed a strange number like 290 degrees - the API request was missing `units: metric`, so it returned Kelvin. Fix: added the units parameter.
-- The map box didn't show, just a thin line - it only had `max-width` set, no `width`, so the flex layout shrank it to nothing. Fix: added `width: 100%`.
-- Two of the seed cafes had latitude and longitude swapped, putting them in the wrong spot. Fix: corrected the values in `seed_cafes.py`.
-- On Heroku, the Map/Login/Sign up/Add a Place links gave a 404 - only the homepage had a real Django view and template. Fix: added a view, template and URL for each page.
-- The weather icon (an OpenWeatherMap image) was almost invisible on the light background, and an emoji looked different on every device. Fix: used a Bootstrap Icons icon instead, on a light blue circle so it stands out.
-- On the live site, the map tiles stopped loading and showed a usage policy warning - `tile.openstreetmap.org` isn't meant for a deployed public app. Fix: switched to Esri's free tiles, no key needed.
+See [TESTING.md](TESTING.md) for the manual testing notes and the full list of bugs found and fixed during development.
 
 ## Deployment
 
