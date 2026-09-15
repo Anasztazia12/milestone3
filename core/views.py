@@ -6,6 +6,7 @@ from django.shortcuts import render
 def home(request):
     temperature = None
     weather_description = None
+    weather_icon = None
 
     api_key = os.environ.get('WEATHER_API_KEY')
     url = 'https://api.openweathermap.org/data/2.5/weather'
@@ -20,9 +21,11 @@ def home(request):
         data = response.json()
         temperature = data['main']['temp']
         weather_description = data['weather'][0]['description']
+        weather_icon = data['weather'][0]['icon']
 
     context = {
         'temperature': temperature,
         'weather_description': weather_description,
+        'weather_icon': weather_icon,
     }
     return render(request, 'index.html', context)
