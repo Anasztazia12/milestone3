@@ -98,6 +98,9 @@ form {
 .weather-icon {
     font-size: 60px;
     line-height: 1;
+    background-color: #efdfd0;
+    border-radius: 50%;
+    padding: 10px;
 }
 
 /* full width homepage section, no card */
@@ -357,10 +360,14 @@ footer {
     .nav-menu {
         display: none;
         flex-direction: column;
+        align-items: center;
         justify-content: flex-start;
         width: 100%;
         margin-left: 0;
         margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        gap: 10px;
     }
 
     .nav-menu.open {
@@ -369,16 +376,26 @@ footer {
 
     .nav-links {
         flex-direction: column;
+        align-items: center;
+        gap: 8px;
         text-align: center;
     }
 
     .nav-links a {
-        margin: 5px;
+        margin: 0;
+    }
+
+    .nav-menu .btn {
+        padding: 6px 18px;
     }
 
     .nav-auth {
         flex-direction: column;
+        align-items: center;
         width: 100%;
+        gap: 8px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .box {
@@ -400,6 +417,15 @@ footer {
 
     .search-form .btn {
         width: 100%;
+    }
+
+    .weather-line {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .weather-icon {
+        font-size: 44px;
     }
 
     form {
