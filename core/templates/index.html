@@ -69,8 +69,8 @@
     <div class="weather-bar">
         {% if weather_description %}
             <p class="weather-line">
-                <i class="bi {{ weather_icon_class }} weather-icon"></i>
-                {{ city }}: {{ temperature }}&deg;C, {{ weather_description }}
+                <i class="bi {{ weather_icon_class }} weather-icon {{ weather_color_class }}"></i>
+                {{ city }}: {{ temperature|floatformat:0 }}&deg;C, {{ weather_description }}
             </p>
         {% endif %}
 

@@ -122,10 +122,43 @@ form {
 .weather-icon {
     font-size: 40px;
     line-height: 1;
-    color: #3a7ca5;
-    background-color: #d6ebf7;
     border-radius: 50%;
     padding: 14px;
+}
+
+.weather-sun {
+    color: #d9971e;
+    background-color: #fdf1d6;
+}
+
+.weather-cloud {
+    color: #3a7ca5;
+    background-color: #d6ebf7;
+}
+
+.weather-overcast {
+    color: #5c6b78;
+    background-color: #dfe5e9;
+}
+
+.weather-rain {
+    color: #2b6ca3;
+    background-color: #d2e6f5;
+}
+
+.weather-storm {
+    color: #46415e;
+    background-color: #ddd9e8;
+}
+
+.weather-snow {
+    color: #4f9cc4;
+    background-color: #e8f5fb;
+}
+
+.weather-mist {
+    color: #77828a;
+    background-color: #e6e9eb;
 }
 
 /* full width homepage section, no card */

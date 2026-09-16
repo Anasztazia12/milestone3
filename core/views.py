@@ -16,11 +16,24 @@ WEATHER_ICONS = {
     '50': 'bi-cloud-fog2',
 }
 
+WEATHER_COLORS = {
+    '01': 'weather-sun',
+    '02': 'weather-cloud',
+    '03': 'weather-overcast',
+    '04': 'weather-overcast',
+    '09': 'weather-rain',
+    '10': 'weather-rain',
+    '11': 'weather-storm',
+    '13': 'weather-snow',
+    '50': 'weather-mist',
+}
+
 
 def home(request):
     temperature = None
     weather_description = None
     weather_icon_class = None
+    weather_color_class = None
     city = request.GET.get('city', 'London')
 
     api_key = os.environ.get('WEATHER_API_KEY')
@@ -38,12 +51,14 @@ def home(request):
         weather_description = data['weather'][0]['description']
         icon_code = data['weather'][0]['icon']
         weather_icon_class = WEATHER_ICONS.get(icon_code[:2], 'bi-cloud')
+        weather_color_class = WEATHER_COLORS.get(icon_code[:2], 'weather-cloud')
 
     context = {
         'city': city,
         'temperature': temperature,
         'weather_description': weather_description,
         'weather_icon_class': weather_icon_class,
+        'weather_color_class': weather_color_class,
     }
     return render(request, 'index.html', context)
 
