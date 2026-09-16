@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Place - WorkCafe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}">
+</head>
+<body>
+    <!-- nav bar -->
+    <nav class="navbar">
+        <a href="/" class="brand">
+            <span class="brand-icon">&#9749;</span>
+            <span class="brand-text">WorkCafe</span>
+        </a>
+
+        <button type="button" class="nav-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('open'); this.innerHTML = document.querySelector('.nav-menu').classList.contains('open') ? '&times;' : '&#9776;';">&#9776;</button>
+
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="/" class="fw-semibold mx-2">Home</a>
+                <a href="/map/" class="fw-semibold mx-2">Map</a>
+            </div>
+            <div class="nav-auth">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn btn-light">Log out</a>
+                    <a href="{% url 'delete_account' %}" class="delete-account-link" onclick="return confirm('Are you sure you want to delete your account? This cannot be undone.');">Delete account</a>
+                {% else %}
+                    <a href="/login/" class="btn btn-outline-light">Log in</a>
+                    <a href="/signup/" class="btn btn-light">Sign up</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- edit cafe form -->
+    <h1>Edit Place</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Cafe name</label>
+        <input type="text" id="name" name="name" value="{{ cafe.name }}" required>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" value="{{ cafe.address }}" required>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" value="{{ cafe.city }}" required>
+
+        <label for="wifi">Has wifi?</label>
+        <select id="wifi" name="wifi">
+            <option value="yes" {% if cafe.wifi_speed_mbps > 0 %}selected{% endif %}>Yes</option>
+            <option value="no" {% if cafe.wifi_speed_mbps == 0 %}selected{% endif %}>No</option>
+        </select>
+
+        <label for="quiet">Has quiet corner?</label>
+        <select id="quiet" name="quiet">
+            <option value="yes" {% if cafe.quiet_rating >= 4 %}selected{% endif %}>Yes</option>
+            <option value="no" {% if cafe.quiet_rating < 4 %}selected{% endif %}>No</option>
+        </select>
+
+        <button type="submit" class="btn btn-success w-100">Save Changes</button>
+    </form>
+
+    <p><a href="{% url 'my_cafes' %}">Back to My Cafes</a></p>
+
+    <!-- footer -->
+    <footer>
+        <span class="footer-brand">
+            <span>&#9749;</span>
+            <span class="footer-text">WorkCafe</span>
+        </span>
+        <p>Copyright &copy; 2026 WorkCafe</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

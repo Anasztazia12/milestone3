@@ -284,7 +284,7 @@ CAFES = [
 
 
 class Command(BaseCommand):
-    help = 'Adds the starter list of cafes to the databse'
+    help = 'Adds the starter list of cafes to the database'
 
     def handle(self, *args, **kwargs):
         for cafe_data in CAFES:
@@ -296,4 +296,4 @@ class Command(BaseCommand):
                 Spot.objects.create(cafe=cafe, spot_name='Main area', capacity=4)
                 self.stdout.write('Added ' + cafe.name)
             else:
-                self.stdout.write(cafe.name + ' alredy exists')
+                self.stdout.write(cafe.name + ' already exists')

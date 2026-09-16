@@ -1,6 +1,6 @@
 import os
 import requests
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from core.models import Cafe
@@ -142,3 +142,44 @@ def add_cafe_page(request):
         return redirect('map')
 
     return render(request, 'add-cafe.html')
+
+
+def my_cafes_page(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    cafes = Cafe.objects.filter(submitted_by=request.user)
+    return render(request, 'my-cafes.html', {'cafes': cafes})
+
+
+def edit_cafe_page(request, cafe_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    cafe = get_object_or_404(Cafe, id=cafe_id, submitted_by=request.user
+
+    if request.method == 'POST':
+        cafe.name = request.POST.get('name')
+        cafe.address = request.POST.get('address')
+        cafe.city = request.POST.get('city')
+        wifi = request.POST.get('wifi')
+        quiet = request.POST.get('quiet')
+        cafe.wifi_speed_mbps = 50 if wifi == 'yes' else 0
+        cafe.quiet_rating = 4 if quiet == 'yes' else 2
+        cafe.save()
+        return redirect('my_cafes')
+
+    return render(request, 'edit-cafe.html', {'cafe': cafe})
+
+
+def delete_cafe_page(request, cafe_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    cafe = get_object_or_404(Cafe, id=cafe_id, submitted_by=request.user)
+
+    if request.method == 'POST':
+        cafe.delete()
+        return redirect('my_cafes')
+
+    return render(request, 'delete-cafe.html', {'cafe': cafe})
