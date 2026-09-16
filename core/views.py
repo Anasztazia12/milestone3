@@ -3,6 +3,7 @@ import requests
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from core.models import Cafe
 
 WEATHER_ICONS = {
     '01': 'bi-sun',
@@ -120,4 +121,24 @@ def delete_account(request):
 
 
 def add_cafe_page(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        address = request.POST.get('address')
+        city = request.POST.get('city')
+        wifi = request.POST.get('wifi')
+        quiet = request.POST.get('quiet')
+
+        Cafe.objects.create(
+            name=name,
+            address=address,
+            city=city,
+            wifi_speed_mbps=50 if wifi == 'yes' else 0,
+            quiet_rating=4 if quiet == 'yes' else 2,
+            submitted_by=request.user,
+        )
+        return redirect('map')
+
     return render(request, 'add-cafe.html')

@@ -128,7 +128,9 @@ form {
 }
 
 .weather-search input {
-    width: 100px;
+    width: 180px;
+    padding: 8px 12px;
+    font-size: 16px;
     margin-bottom: 0;
 }
 
@@ -186,7 +188,7 @@ form {
 .box {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 40px;
     padding: 0 15px 30px 15px;
