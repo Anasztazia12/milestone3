@@ -156,7 +156,7 @@ def edit_cafe_page(request, cafe_id):
     if not request.user.is_authenticated:
         return redirect('login')
 
-    cafe = get_object_or_404(Cafe, id=cafe_id, submitted_by=request.user
+    cafe = get_object_or_404(Cafe, id=cafe_id, submitted_by=request.user)
 
     if request.method == 'POST':
         cafe.name = request.POST.get('name')

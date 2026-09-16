@@ -59,7 +59,7 @@
             <option value="no" {% if cafe.wifi_speed_mbps == 0 %}selected{% endif %}>No</option>
         </select>
 
-        <label for="quiet">Has quiet corner?</label>
+        <label for="quiet">Has a quiet corner?</label>
         <select id="quiet" name="quiet">
             <option value="yes" {% if cafe.quiet_rating >= 4 %}selected{% endif %}>Yes</option>
             <option value="no" {% if cafe.quiet_rating < 4 %}selected{% endif %}>No</option>
