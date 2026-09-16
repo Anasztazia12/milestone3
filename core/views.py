@@ -87,6 +87,25 @@ def map_page(request):
     return render(request, 'map.html', context)
 
 
+def cafe_list_page(request):
+    query = request.GET.get('q', '')
+
+    if request.user.is_authenticated:
+        cafes = Cafe.objects.all()
+    else:
+        cafes = Cafe.objects.filter(members_only=False)
+
+    if query:
+        cafes = cafes.filter(name__icontains=query) | cafes.filter(city__icontains=query)
+
+    context = {
+        'cafes': cafes,
+        'query': query,
+        'cafe_count': cafes.count(),
+    }
+    return render(request, 'cafe-list.html', context)
+
+
 def login_page(request):
     error = None
 
