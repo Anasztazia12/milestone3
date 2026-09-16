@@ -13,6 +13,7 @@ class Cafe(models.Model):
     quiet_rating = models.IntegerField(default=3)
     members_only = models.BooleanField(default=False)
     submitted_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    favourited_by = models.ManyToManyField(User, related_name='favourite_cafes', blank=True)
 
     def __str__(self):
         return self.name + " (" + self.city + ")"

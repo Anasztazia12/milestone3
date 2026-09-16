@@ -168,7 +168,7 @@ Search cafes (open to everyone), view them on a map, sign up/login, register a n
 
 - current weather shown on the homepage - done
 - see the weather a few days ahead, for when you are planning a visit - not built yet
-- save a cafe as a favourite - not built yet
+- save a cafe as a favourite - done
 
 #### Won't have (this version)
 
@@ -188,7 +188,7 @@ WorkCafe
 |-- Sign up
 |-- Add a cafe
 |-- (after login)
-    |-- My Cafes (edit/delete)
+    |-- My Cafes (favourites, edit/delete)
     |-- Check in / check out
 ```
 
@@ -229,6 +229,7 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | wifi_speed_mbps | IntegerField |
 | quiet_rating | IntegerField |
 | submitted_by | ForeignKey (User) - so only the user who added a cafe can edit or delete it |
+| favourited_by | ManyToManyField (User) - so a user can save a cafe as a favourite |
 
 #### Spot
 
@@ -255,9 +256,11 @@ This table currently stores a date, time and status, from an earlier plan where 
 - one Cafe can have many Spots
 - one Spot can have many check-ins
 - one User can have many check-ins, but can only view or end their own
+- a User can favourite many Cafes, and a Cafe can be favourited by many Users
 
 ```text
 Cafe ---< Spot ---< Check-in >--- User
+Cafe >---< User (favourites)
 ```
 
 ## Validation and Security Planning
@@ -300,7 +303,6 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 
 ## Future Improvements
 
-- Saving a cafe as a favourite, and being able to remove it again.
 - Checking in ("I am here") to the cafe you are currently working from, and checking out ("I am out") when you leave.
 - Seeing who else is checked in at a cafe right now.
 - Letting a cafe show how many free spots it currently has.
@@ -330,4 +332,4 @@ Things can work fine on my computer but break once the site is actually online -
 - business-illustration.gif - Pixabay.com
 - coffee.gif - Pixabay.com
 - Map tiles - &copy; Esri
-- Cafe names and addresses used in the seed data were gathered with the help of Google Gemini
+- Cafe names, addresses and details (wifi speed, quiet rating) used in the seed data were gathered with the help of Google Gemini

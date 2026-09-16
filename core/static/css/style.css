@@ -639,6 +639,12 @@ footer {
 .cafe-card {
     max-width: 260px;
     margin: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cafe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
 .extra-cafe {

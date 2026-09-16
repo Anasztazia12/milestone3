@@ -66,10 +66,15 @@ def home(request):
 
 
 def map_page(request):
+    query = request.GET.get('q', '')
+
     if request.user.is_authenticated:
         cafes = Cafe.objects.all()
     else:
         cafes = Cafe.objects.filter(members_only=False)
+
+    if query:
+        cafes = cafes.filter(name__icontains=query) | cafes.filter(city__icontains=query)
 
     cafes_data = []
     for cafe in cafes:
@@ -83,6 +88,7 @@ def map_page(request):
     context = {
         'cafes_json': json.dumps(cafes_data),
         'cafe_count': len(cafes_data),
+        'query': query,
     }
     return render(request, 'map.html', context)
 
@@ -98,12 +104,35 @@ def cafe_list_page(request):
     if query:
         cafes = cafes.filter(name__icontains=query) | cafes.filter(city__icontains=query)
 
+    cafes = cafes.order_by('city', 'name')
+
+    if request.user.is_authenticated:
+        favourite_ids = set(request.user.favourite_cafes.values_list('id', flat=True))
+    else:
+        favourite_ids = set()
+
     context = {
         'cafes': cafes,
         'query': query,
         'cafe_count': cafes.count(),
+        'favourite_ids': favourite_ids,
     }
     return render(request, 'cafe-list.html', context)
+
+
+def toggle_favourite(request, cafe_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    cafe = get_object_or_404(Cafe, id=cafe_id)
+
+    if request.method == 'POST':
+        if request.user in cafe.favourited_by.all():
+            cafe.favourited_by.remove(request.user)
+        else:
+            cafe.favourited_by.add(request.user)
+
+    return redirect(request.POST.get('next', 'cafe_list'))
 
 
 def login_page(request):
@@ -186,8 +215,14 @@ def my_cafes_page(request):
     if not request.user.is_authenticated:
         return redirect('login')
 
-    cafes = Cafe.objects.filter(submitted_by=request.user)
-    return render(request, 'my-cafes.html', {'cafes': cafes})
+    favourite_cafes = request.user.favourite_cafes.all()
+    submitted_cafes = Cafe.objects.filter(submitted_by=request.user)
+
+    context = {
+        'favourite_cafes': favourite_cafes,
+        'submitted_cafes': submitted_cafes,
+    }
+    return render(request, 'my-cafes.html', context)
 
 
 def edit_cafe_page(request, cafe_id):

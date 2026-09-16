@@ -72,6 +72,17 @@
                     &middot;
                     <i class="bi bi-volume-mute-fill"></i> {{ cafe.quiet_rating }}/5
                 </p>
+                {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'toggle_favourite' cafe.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        {% if cafe.id in favourite_ids %}
+                            <button type="submit" class="btn btn-outline-success">&#9733; Favourited</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-outline-success">&#9734; Add to favourites</button>
+                        {% endif %}
+                    </form>
+                {% endif %}
             </div>
         {% empty %}
             <p class="text-center">No cafes found.</p>

@@ -13,4 +13,5 @@ urlpatterns = [
     path('my-cafes/', views.my_cafes_page, name='my_cafes'),
     path('cafe/<int:cafe_id>/edit/', views.edit_cafe_page, name='edit_cafe'),
     path('cafe/<int:cafe_id>/delete/', views.delete_cafe_page, name='delete_cafe'),
+    path('cafe/<int:cafe_id>/favourite/', views.toggle_favourite, name='toggle_favourite'),
 ]
