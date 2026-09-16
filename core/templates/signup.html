@@ -24,6 +24,9 @@
             <div class="nav-links">
                 <a href="/" class="fw-semibold mx-2">Home</a>
                 <a href="/map/" class="fw-semibold mx-2">Map</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'my_cafes' %}" class="fw-semibold mx-2">My Cafes</a>
+                {% endif %}
                 <button type="button" class="btn btn-how-it-works mx-2" data-bs-toggle="modal" data-bs-target="#howItWorksModal">How it works</button>
             </div>
             <div class="nav-auth">
