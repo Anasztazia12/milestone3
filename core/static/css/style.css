@@ -1,6 +1,6 @@
 /* colors */
 :root {
-    --main-color: #6f4e37;
+    --main-color: #694932;
     --light-bg: #f5ebe0;
     --border-color: #d7ccc8;
 }
@@ -87,6 +87,27 @@ form {
 .signup-hint {
     color: #666666;
     font-size: 14px;
+}
+
+.feature-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 15px 0;
+}
+
+.feature-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #4e342e;
+}
+
+.feature-icon i {
+    font-size: 26px;
+    color: var(--main-color);
 }
 
 .weather-bar {

@@ -198,6 +198,12 @@ Early wireframe (wireframe image generation with Copilot, used for layout refere
 
 ![Login wireframe](assets/images/wireframe2.png)
 
+New wireframe plan (also generated with Copilot, updated to match how the homepage and cafe list actually turned out):
+
+![Homepage wireframe](assets/images/wireframe.png)
+
+![Cafe list wireframe, desktop and mobile](assets/images/wireframe3.png)
+
 ### 5. Surface
 
 Coffee-shop colour scheme: warm brown and cream, with the Playfair Display font for headings and Georgia for body text.
@@ -315,6 +321,7 @@ Things can work fine on my computer but break once the site is actually online -
 ## Credits
 
 - Login wireframe image - generated with Copilot
+- New wireframe plan images - generated with Copilot
 - Logo - designed with Copilot
 - business-illustration.gif - Pixabay.com
 - coffee.gif - Pixabay.com
