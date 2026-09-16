@@ -88,6 +88,10 @@
         <div class="hero-text">
             <h1>WorkCafe</h1>
 
+            {% if user.is_authenticated %}
+                <p class="welcome">Welcome, {{ user.username }}!</p>
+            {% endif %}
+
             <p>Search for a nearby cafe or workspace with good wifi and a quiet corner.</p>
 
             <form class="search-form d-flex" role="search">

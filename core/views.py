@@ -1,4 +1,5 @@
 import os
+import json
 import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
@@ -65,7 +66,25 @@ def home(request):
 
 
 def map_page(request):
-    return render(request, 'map.html')
+    if request.user.is_authenticated:
+        cafes = Cafe.objects.all()
+    else:
+        cafes = Cafe.objects.filter(members_only=False)
+
+    cafes_data = []
+    for cafe in cafes:
+        if cafe.latitude is not None and cafe.longitude is not None:
+            cafes_data.append({
+                'name': cafe.name,
+                'lat': cafe.latitude,
+                'lng': cafe.longitude,
+            })
+
+    context = {
+        'cafes_json': json.dumps(cafes_data),
+        'cafe_count': len(cafes_data),
+    }
+    return render(request, 'map.html', context)
 
 
 def login_page(request):

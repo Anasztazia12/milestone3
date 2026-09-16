@@ -89,6 +89,13 @@ form {
     font-size: 14px;
 }
 
+.welcome {
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
 .feature-icons {
     display: flex;
     justify-content: center;

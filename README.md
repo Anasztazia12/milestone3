@@ -1,10 +1,10 @@
 # milestone3
 
-WorkCafe - a website where you can find a good cafe to work from and book a spot, built with Python and Django for my MS3 project.
+WorkCafe - a website where you can find a good cafe to work from and check in to show you are there, built with Python and Django for my MS3 project.
 
 ## Description
 
-WorkCafe is a website for finding a cafe to work from - somewhere with decent wifi, a power outlet and a quiet corner - and booking a spot there.
+WorkCafe is a website for finding a cafe to work from - somewhere with decent wifi, a power outlet and a quiet corner - and checking in there so others know you are working from it.
 
 It is designed for students, freelancers, remote workers and anyone who needs a place to sit down and get some work done for a few hours.
 
@@ -13,13 +13,13 @@ Anyone can search cafes by name or city and view them on a map, without needing 
 Registered users can also:
 
 - register a new cafe
-- book a spot at a cafe
+- check in to a cafe to show they are there, and check out again when they leave
 
 ## Purpose
 
 Finding a decent place to work from is hard. Good spots get shared on random group chats or forgotten after one visit, and there is no way to know if there will be room when you get there.
 
-WorkCafe brings this into one simple, searchable list with a map, and lets users book a spot in advance.
+WorkCafe brings this into one simple, searchable list with a map, and lets users check in to a cafe to show they are working from there and whether there is still space.
 
 ## Pages
 
@@ -76,7 +76,7 @@ A web application is ideal because it can:
 - be searched from any device before leaving the house
 - show cafes on a map
 - let anyone add a new place they found
-- let a user book a spot ahead of time
+- let a user check in to a cafe and mark whether there is space
 - work without needing an account, but reward users who sign up
 
 ### What would make the solution valuable enough for someone to use?
@@ -86,7 +86,7 @@ The solution becomes valuable when it offers:
 - a simple search that actually finds nearby places
 - honest, useful details (wifi speed, power outlets, quiet rating)
 - a map so a user can see where a cafe actually is
-- an easy way to book a spot
+- an easy way to check in and see if a cafe still has space
 
 ### Problems and Solutions
 
@@ -94,7 +94,7 @@ The solution becomes valuable when it offers:
 | --- | --- |
 | Good cafes are hard to find | All cafes are searchable in one list and on a map |
 | Recommendations get lost in chats | Anyone can register a cafe so it is saved for everyone |
-| Turning up to a full cafe | A user can book a spot ahead of time |
+| Turning up to a full cafe | Checked-in users can mark whether there is still space, so others can check before going |
 | Comparing cafes is hard | Each cafe lists wifi speed, power outlets and a quiet rating |
 
 ### Business Goals
@@ -115,20 +115,21 @@ The solution becomes valuable when it offers:
 
 ### Returning users
 
-- As a returning user, I want to log in, so that I can book a spot.
+- As a returning user, I want to log in, so that I can check in and see who else is working nearby.
 - As a returning user, I want to see the current weather on the homepage, so that I know if I should pick somewhere close by.
 
 ### Frequent users
 
 - As a frequent user, I want to register a new cafe, so that other people can find it too.
-- As a frequent user, I want to book a spot at a cafe for a specific date and time, so that I know I will have somewhere to sit.
-- As a frequent user, I want to cancel a booking I made, so that my schedule stays accurate.
+- As a frequent user, I want to check in to the cafe I am working from, so other users know I am there.
+- As a frequent user, I want to mark whether there is still space, so other users know before they go.
+- As a frequent user, I want to check out when I leave, so my status stays accurate.
 
 ## UX Design (5 Planes)
 
 ### 1. Strategy
 
-People need a fast, simple way to find a place to work and know they will have a spot, without having to ask around or guess.
+People need a fast, simple way to find a place to work and see if there is space, without having to ask around or guess.
 
 #### Target audience
 
@@ -142,30 +143,31 @@ People need a fast, simple way to find a place to work and know they will have a
 - search for a cafe quickly, without needing an account
 - see cafes on a map
 - sign up and log in easily
-- book a spot ahead of time
+- check in to a cafe to show they are there
 
 ### 2. Scope
 
-Search cafes (open to everyone), view them on a map, sign up/login, register a new cafe, book a spot.
+Search cafes (open to everyone), view them on a map, sign up/login, register a new cafe, check in to a cafe.
 
 #### Must have (MVP)
 
 - search and view the list of cafes, no account needed - done, but the map still uses a fixed list instead of reading from the database
 - view cafes on a map - done, but not database-driven yet
 - user registration and login - done
-- register a new cafe - not built yet
-- edit or delete a cafe you registered, in case it closed or was entered wrong - not built yet
-- book a spot - not built yet
+- register a new cafe - done
+- edit or delete a cafe you registered, in case it closed or was entered wrong - done
+- check in to a cafe to show you are there - not built yet
 
 #### Should have
 
 - clear error messages on forms - done for login and sign up
 - consistent navigation and branding on every page - done
-- cancel a booking - not built yet
+- check out again when you leave - not built yet
 
 #### Could have
 
 - current weather shown on the homepage - done
+- see the weather a few days ahead, for when you are planning a visit - not built yet
 - save a cafe as a favourite - not built yet
 
 #### Won't have (this version)
@@ -175,7 +177,7 @@ Search cafes (open to everyone), view them on a map, sign up/login, register a n
 
 ### 3. Structure
 
-Homepage links to login and signup, the map, and lets anyone search. Once logged in, a user can also register a cafe and book a spot.
+Homepage links to login and signup, the map, and lets anyone search. Once logged in, a user can also register a cafe and check in to one.
 
 ```text
 WorkCafe
@@ -186,8 +188,8 @@ WorkCafe
 |-- Sign up
 |-- Add a cafe
 |-- (after login)
-    |-- Book a spot
-    |-- My bookings
+    |-- My Cafes (edit/delete)
+    |-- Check in / check out
 ```
 
 ### 4. Skeleton
@@ -236,7 +238,7 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | spot_name | CharField |
 | capacity | IntegerField |
 
-#### Booking
+#### Booking (planned to become check-ins)
 
 | Field | Type |
 | --- | --- |
@@ -246,22 +248,24 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | start_time | TimeField |
 | status | CharField (confirmed, cancelled) |
 
+This table currently stores a date, time and status, from an earlier plan where users booked a spot in advance. Since a cafe cannot confirm bookings for me, the plan changed to checking in when you arrive instead - so this model will be adapted to record when a user checks in and checks out of a spot, rather than a scheduled booking.
+
 ### Relationships
 
 - one Cafe can have many Spots
-- one Spot can have many Bookings
-- one User can have many Bookings, but can only view or cancel their own
+- one Spot can have many check-ins
+- one User can have many check-ins, but can only view or end their own
 
 ```text
-Cafe ---< Spot ---< Booking >--- User
+Cafe ---< Spot ---< Check-in >--- User
 ```
 
 ## Validation and Security Planning
 
 - Django already handles login, logout and password saving safely, so I don't write that part myself
 - forms use Django's built-in CSRF protection
-- only logged-in users can book a spot or register a cafe
-- a user can only view or cancel their own bookings, not other users' bookings
+- only logged-in users can check in or register a cafe
+- a user can only view or end their own check-ins, not other users' check-ins
 - passwords, the database login and the weather API key are never written in the code - they live in an `env.py` file that is not uploaded to GitHub
 - DEBUG is off in production so visitors never see error details
 
@@ -302,14 +306,14 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 - Letting a cafe show how many free spots it currently has.
 - Letting logged-in users ask each other if there is free space at a cafe right now, and reply yes/no.
 - Letting logged-in users leave a comment on any cafe (for example, to say it is still good or has closed down).
-- Deleting your account.
+- Showing the weather a few days ahead, for when someone is planning a visit rather than going right now.
 
 ## Changes During Development
 
 | Original Plan | Change | Reason |
 | --- | --- | --- |
-| The project was going to be "Booking Manager" - a tool for a business owner to manage their own clients and bookings | Changed to "WorkCafe" - a shared, searchable list of cafes anyone can add to and book a spot at | Better matches a project people would actually use, and still needs the same CRUD/auth/database skills |
-| The site was going to let users save cafes as favourites but not book them | Added real bookings (Cafe, Spot and Booking models) instead of just favourites | Booking a spot is more useful and gives a fuller set of CRUD features |
+| The project was going to be "Booking Manager" - a tool for a business owner to manage their own clients and bookings | Changed to "WorkCafe" - a shared, searchable list of cafes anyone can add to and check in at | Better matches a project people would actually use, and still needs the same CRUD/auth/database skills |
+| The site was going to let users save cafes as favourites, then later let them book a spot in advance | Changed to checking in instead - a cafe cannot actually confirm a booking, so showing that you are there right now (and whether there is space) is more realistic | A cafe cannot guarantee a reservation the way a restaurant can, so checking in is a better fit than booking |
 | A "Continue as Guest" preview dashboard was planned so visitors could see the app without registering | Removed entirely | Search itself is already open to everyone without an account, so a separate guest preview was not needed |
 | Static HTML pages were going to be styled further with more images and effects | Kept deliberately simple | The project is a Django + database CRUD app at its core - time is better spent on that than on extra front-end polish |
 | Only the homepage was going to be a real Django page at first, with the other pages as static HTML | Turned Map, Login, Sign up and Add a Place into real Django views, templates and URLs too | Needed so the navigation actually works once deployed, and so forms/pages can be connected to the database later |
