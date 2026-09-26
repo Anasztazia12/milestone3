@@ -1,8 +1,8 @@
 /* colors */
 :root {
-    --main-color: #2e221a;
-    --light-bg: #f1c08b;
-    --border-color: #f16863;
+    --main-color: #694932;
+    --light-bg: #f5ebe0;
+    --border-color: #d7ccc8;
 }
 
 /* page background */
@@ -15,9 +15,9 @@ body {
     font-family: Georgia, serif;
     background-color: var(--light-bg);
     background-image:
-        radial-gradient(circle at top right, #f0cfb0 0%, transparent 40%),
-        radial-gradient(circle at top left, #d85e49 0%, transparent 40%),
-        linear-gradient(var(--light-bg), #291f16);
+        radial-gradient(circle at top right, #a9744f 0%, transparent 40%),
+        radial-gradient(circle at top left, #d8a8a0 0%, transparent 30%),
+        linear-gradient(var(--light-bg), #b98a5e);
     margin: 0;
     padding: 10px;
     min-height: 100vh;
@@ -536,9 +536,17 @@ footer {
     margin: 30px -10px -10px -10px;
     margin-top: auto;
     padding: 15px 10px;
-    background-color: #d7ccc8;
-    color: #4e342e;
+    background-color: var(--main-color);
+    color: #ffffff;
     font-size: 14px;
+}
+
+footer .footer-text {
+    color: #ffffff;
+}
+
+footer .footer-text::after {
+    background-color: #ffffff;
 }
 
 /* responsive - small screens */

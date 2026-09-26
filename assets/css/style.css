@@ -536,9 +536,17 @@ footer {
     margin: 30px -10px -10px -10px;
     margin-top: auto;
     padding: 15px 10px;
-    background-color: #d7ccc8;
-    color: #4e342e;
+    background-color: var(--main-color);
+    color: #ffffff;
     font-size: 14px;
+}
+
+footer .footer-text {
+    color: #ffffff;
+}
+
+footer .footer-text::after {
+    background-color: #ffffff;
 }
 
 /* responsive - small screens */
