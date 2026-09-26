@@ -4,9 +4,10 @@ import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.templatetags.static import static as static_asset
 from core.models import Cafe, Profile
 
-AVATAR_SEEDS = ['Felix', 'Luna', 'Nova', 'Buddy', 'Ginger', 'Milo']
+AVATAR_SEEDS = ['Storm', 'Luna', 'Nova', 'Buddy', 'Ginger', 'Charlie', 'Daisy', 'Max', 'Leo', 'Coco', 'Sunny', 'Pepper']
 
 WEATHER_ICONS = {
     '01': 'bi-sun',
@@ -174,7 +175,11 @@ def signup_page(request):
             login(request, user)
             return redirect('home')
 
-    return render(request, 'signup.html', {'error': error, 'avatar_seeds': AVATAR_SEEDS})
+    avatar_options = []
+    for seed in AVATAR_SEEDS:
+        avatar_options.append({'seed': seed, 'url': static_asset('images/avatars/' + seed + '.svg')})
+
+    return render(request, 'signup.html', {'error': error, 'avatar_options': avatar_options})
 
 
 def logout_page(request):

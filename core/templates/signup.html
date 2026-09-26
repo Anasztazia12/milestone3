@@ -39,10 +39,10 @@
 
         <label>Choose your avatar</label>
         <div class="avatar-choices">
-            {% for seed in avatar_seeds %}
+            {% for option in avatar_options %}
                 <label class="avatar-option">
-                    <input type="radio" name="avatar_seed" value="{{ seed }}" {% if forloop.first %}checked{% endif %}>
-                    <img src="https://api.multiavatar.com/{{ seed }}.svg" alt="Avatar option {{ seed }}">
+                    <input type="radio" name="avatar_seed" value="{{ option.seed }}" {% if forloop.first %}checked{% endif %}>
+                    <img src="{{ option.url }}" alt="Avatar option {{ option.seed }}">
                 </label>
             {% endfor %}
         </div>

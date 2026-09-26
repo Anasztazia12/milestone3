@@ -61,7 +61,7 @@
             {% if user.is_authenticated %}
                 <p class="welcome">
                     {% if user.profile %}
-                        <img src="https://api.multiavatar.com/{{ user.profile.avatar_seed }}.svg" alt="" class="welcome-avatar">
+                        <img src="{% static 'images/avatars/'|add:user.profile.avatar_seed|add:'.svg' %}" alt="" class="welcome-avatar">
                     {% endif %}
                     Welcome, {{ user.username }}!
                 </p>
