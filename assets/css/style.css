@@ -37,7 +37,7 @@ h1 {
     margin-top: 0;
     margin-bottom: 20px;
     font-family: "Playfair Display", Georgia, serif;
-    text-shadow: 0 0 10px var(--light-bg), 0 0 10px var(--light-bg), 0 0 10px var(--light-bg);
+    text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg), 0 0 20px var(--light-bg), 0 0 20px var(--light-bg);
 }
 
 h2 {
@@ -45,15 +45,16 @@ h2 {
     margin-top: 30px;
     margin-bottom: 15px;
     font-family: "Playfair Display", Georgia, serif;
-    text-shadow: 0 0 10px var(--light-bg), 0 0 10px var(--light-bg);
+    text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg);
 }
 
 .hero-text h1 {
-    font-size: 48px;
+    font-size: 64px;
     font-style: italic;
     display: inline-block;
     position: relative;
     padding-bottom: 12px;
+    margin-bottom: 15px;
     text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg), 0 0 20px var(--light-bg), 0 0 20px var(--light-bg);
 }
 
@@ -116,6 +117,7 @@ form {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 5px;
+    text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg), 0 0 20px var(--light-bg), 0 0 20px var(--light-bg);
 }
 
 .avatar-choices {
@@ -152,9 +154,9 @@ form {
 
 .feature-icons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 25px;
-    margin: 15px 0;
+    margin: 25px 0;
 }
 
 .feature-icon {
@@ -266,19 +268,80 @@ form {
     text-align: center;
 }
 
+.account-promo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    padding: 30px 40px;
+    background-color: #8b6347;
+    border-radius: 90px 15px 60px 35px;
+    color: #ffffff;
+}
+
+.account-promo-label {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #e8b878;
+    margin-bottom: 8px;
+}
+
+.account-promo-text h2 {
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-shadow: none;
+}
+
+.account-promo-subheading {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.account-promo-text p {
+    max-width: 500px;
+}
+
+.account-promo .account-promo-btn {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: var(--main-color);
+    white-space: nowrap;
+}
+
+.account-promo .account-promo-btn:hover {
+    background-color: #e8d5c4;
+    border-color: #e8d5c4;
+    color: var(--main-color);
+}
+
 .hero-text p {
-    text-shadow: 0 0 10px var(--light-bg), 0 0 10px var(--light-bg), 0 0 10px var(--light-bg);
+    text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg), 0 0 20px var(--light-bg), 0 0 20px var(--light-bg);
+    font-size: 17px;
+    margin: 18px 0;
+}
+
+.hero-text .search-form {
+    margin: 25px 0;
 }
 
 
 .hero-image-wrap {
     background-color: #efdfd0;
     border-radius: 20px;
-    padding: 30px;
+    padding: 18px;
+    flex-shrink: 0;
 }
 
 .hero-image {
-    max-width: 200px;
+    max-width: 150px;
     width: 100%;
     display: block;
 }
@@ -365,10 +428,13 @@ input {
     margin-left: 12px;
     padding-left: 12px;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    transition: transform 0.2s, color 0.2s;
 }
 
 .delete-account-link:hover {
     color: #ffb3b3;
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* hamburger button, hidden on bigger screens */
@@ -463,13 +529,12 @@ input {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .footer-text {
     font-family: "Playfair Display", Georgia, serif;
-    font-weight: bold;
-    font-style: italic;
+    font-weight: 800;
     color: var(--main-color);
     position: relative;
     padding-bottom: 6px;
@@ -532,21 +597,71 @@ body > p a:hover {
 
 /* bottom of every page, sticks to the bottom of the screen on short pages */
 footer {
-    text-align: center;
     margin: 30px -10px -10px -10px;
     margin-top: auto;
-    padding: 15px 10px;
-    background-color: var(--main-color);
-    color: #ffffff;
-    font-size: 14px;
+    padding: 30px 20px 15px 20px;
+    background-color: #e8d5c4;
+    color: var(--main-color);
+    font-size: 16px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(105, 73, 50, 0.25);
+}
+
+.footer-about {
+    max-width: 280px;
+}
+
+.footer-about p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--main-color);
+}
+
+.footer-column h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    text-align: left;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-column a {
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin: 15px 0 0 0;
+    font-size: 15px;
 }
 
 footer .footer-text {
-    color: #ffffff;
+    color: var(--main-color);
 }
 
 footer .footer-text::after {
-    background-color: #ffffff;
+    background-color: var(--main-color);
 }
 
 /* responsive - small screens */
@@ -557,6 +672,19 @@ footer .footer-text::after {
 
     .avatar-choices {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-content {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        align-items: center;
+    }
+
+    .footer-column h3 {
+        text-align: center;
     }
 
     .navbar {
@@ -622,6 +750,7 @@ footer .footer-text::after {
 
     .nav-menu .delete-account-link:hover {
         color: #ffb3b3;
+        transform: translateX(6px);
     }
 
     .box {

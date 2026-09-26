@@ -90,14 +90,24 @@
                     <span>Quiet corners</span>
                 </div>
             </div>
-
-            <p class="signup-hint">Sign up to see all cafes and check in with others nearby - or <a href="/map/">add a cafe</a> you know.</p>
         </div>
 
         <div class="hero-image-wrap">
             <img src="{% static 'images/coffee.gif' %}" alt="Find a place to work" class="hero-image">
         </div>
     </div>
+
+    {% if not user.is_authenticated %}
+        <div class="account-promo">
+            <div class="account-promo-text">
+                <p class="account-promo-label">Account features</p>
+                <h2>Get more from WorkCafe</h2>
+                <p class="account-promo-subheading">See every cafe, not just some of them.</p>
+                <p>With a free account you can see all the cafes on the map and list, register a new cafe you've found, and save your favourites to find again later.</p>
+            </div>
+            <a href="/signup/" class="btn btn-success account-promo-btn">Sign up</a>
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block how_it_works_modal %}
