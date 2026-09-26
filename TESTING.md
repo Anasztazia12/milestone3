@@ -2,7 +2,17 @@
 
 ## Manual Testing
 
-- clicked through search, sign up, login, the map, and (once built) booking/cancelling a spot, checking the result matches what is expected
+Tested on a laptop in Microsoft Edge and Mozilla Firefox, and on an iPhone, checking the layout and buttons still work at phone width and that nothing overlaps or falls off the page.
+
+Went through the user stories from the README to check they actually work:
+
+- New visitor: searched for a cafe by name and by city without being logged in, only cafes marked as not members-only showed up, could see the map without an account
+- New user: signed up with a username, email and password, picked an avatar, got logged in straight away
+- Returning user: logged out and back in with the same account, saw the current weather on the homepage
+- Frequent user: registered a new cafe, saw it appear on the map and the cafe list, edited it and deleted it afterwards, marked a cafe as a favourite and saw it under My Cafes
+
+Check-in, checking free space and checking out are not built yet (see Future Improvements), so these could not be tested.
+
 - ran `python manage.py check` to catch configuration errors
 - checked HTML and CSS with the W3C/Jigsaw validators
 

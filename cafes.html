@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cafes - WorkCafe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico">
+</head>
+<body>
+    <!-- nav bar -->
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <span class="brand-icon">&#9749;</span>
+            <span class="brand-text">WorkCafe</span>
+        </a>
+
+        <button type="button" class="nav-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('open'); this.innerHTML = document.querySelector('.nav-menu').classList.contains('open') ? '&times;' : '&#9776;';">&#9776;</button>
+
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="index.html" class="fw-semibold mx-2">Home</a>
+                <a href="cafes.html" class="fw-semibold mx-2">Cafes</a>
+                <a href="map.html" class="fw-semibold mx-2">Map</a>
+                <button type="button" class="btn btn-how-it-works mx-2" data-bs-toggle="modal" data-bs-target="#howItWorksModal">How it works</button>
+            </div>
+            <div class="nav-auth">
+                <a href="login.html" class="btn btn-outline-light">Log in</a>
+                <a href="signup.html" class="btn btn-light">Sign up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- cafe list page content -->
+    <h1>All Cafes</h1>
+    <p class="text-center signup-hint">Showing 13 cafes - <a href="signup.html">sign up</a> to see all of them</p>
+
+    <div class="map-top-row">
+        <form class="search-form d-flex" role="search">
+            <input type="text" class="form-control" placeholder="Search by name or city">
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+
+        <div class="add-place-card">
+            <p>Know a good spot that's not on the map?</p>
+            <a href="add-cafe.html" class="btn btn-success">+ Register a new place</a>
+        </div>
+    </div>
+
+    <div class="cafe-list">
+        <div class="add-place-card cafe-card">
+            <p><strong>Prufrock Coffee</strong><br>23-25 Leather Ln, London</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 85 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 3/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>Grind Shoreditch</strong><br>85-86 Old St, London</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 100 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 2/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>The Watch House</strong><br>199 Bermondsey St, London</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 50 Mbps &middot; <i class="bi bi-plug-fill"></i> No &middot; <i class="bi bi-volume-mute-fill"></i> 4/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>Foundation Coffee House</strong><br>25 Lever St, Manchester</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 120 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 5/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>Takk Coffee Co.</strong><br>6 Tariff St, Manchester</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 90 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 4/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>Ezra &amp; Gil</strong><br>20 Hilton St, Manchester</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 75 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 3/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>Strangers Coffee House</strong><br>21 Wensum St, Norwich</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 65 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 3/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>The Birdcage</strong><br>23 Pottergate, Norwich</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 40 Mbps &middot; <i class="bi bi-plug-fill"></i> No &middot; <i class="bi bi-volume-mute-fill"></i> 4/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>Costa Coffee (Belvaros)</strong><br>1 Regent Rd, Great Yarmouth</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 55 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 3/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card">
+            <p><strong>Strangers Coffee Company</strong><br>21 Pottergate, Norwich</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 70 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 3/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card extra-cafe">
+            <p><strong>Costa Coffee (Manchester Piccadilly Station)</strong><br>Piccadilly Station, Unit 1, Manchester</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 50 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 2/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card extra-cafe">
+            <p><strong>Unthank Kitchen</strong><br>117 Unthank Rd, Norwich</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 60 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 4/5
+            </p>
+        </div>
+        <div class="add-place-card cafe-card extra-cafe">
+            <p><strong>200 Degrees Coffee Shop</strong><br>16 Flying Horse Walk, Nottingham</p>
+            <p class="signup-hint">
+                <i class="bi bi-wifi"></i> 55 Mbps &middot; <i class="bi bi-plug-fill"></i> Yes &middot; <i class="bi bi-volume-mute-fill"></i> 3/5
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button type="button" class="btn btn-outline-success" onclick="document.querySelectorAll('.extra-cafe').forEach(function(el) { el.classList.toggle('open'); }); this.textContent = this.textContent.trim() === 'More' ? 'Less' : 'More';">More</button>
+    </div>
+
+    <!-- how it works -->
+    <div class="modal fade" id="howItWorksModal" tabindex="-1" role="dialog" aria-labelledby="howItWorksLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="howItWorksLabel">How <span class="footer-text">WorkCafe</span> works</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>WorkCafe helps you find a cafe where you can actually get some work done - somewhere with decent wifi, a power outlet and a quiet corner, not just any coffee shop.</p>
+                    <p>You can search cafes and look at the map without needing an account. If you sign up, you can see more cafes, register a new cafe you've found, and check in to the cafe you are currently working from - so you can see who else is checked in there right now.</p>
+                    <p>When you book a spot, you can also see what the weather will be like on that day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <span class="footer-brand">
+            <span>&#9749;</span>
+            <span class="footer-text">WorkCafe</span>
+        </span>
+        <p>Copyright &copy; 2026 WorkCafe</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
