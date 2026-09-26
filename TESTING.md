@@ -16,6 +16,10 @@ Check-in, checking free space and checking out are not built yet (see Future Imp
 - ran `python manage.py check` to catch configuration errors
 - checked HTML and CSS with the W3C/Jigsaw validators
 
+![HTML validator result for the login page, no errors or warnings](assets/images/html-validator-login.png)
+
+![HTML validator result for the map page, no errors or warnings](assets/images/html-validator-maps.png)
+
 ## Bugs Found
 
 | Bug | Fix |

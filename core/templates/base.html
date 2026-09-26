@@ -15,7 +15,7 @@
     <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
     {% block extra_head %}{% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
     <!-- nav bar -->
     <nav class="navbar">
         <a href="/" class="brand">

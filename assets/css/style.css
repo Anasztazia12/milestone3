@@ -14,6 +14,10 @@ html {
 body {
     font-family: Georgia, serif;
     background-color: var(--light-bg);
+    background-image:
+        radial-gradient(circle at top right, #a9744f 0%, transparent 40%),
+        radial-gradient(circle at top left, #d8a8a0 0%, transparent 30%),
+        linear-gradient(var(--light-bg), #b98a5e);
     margin: 0;
     padding: 10px;
     min-height: 100vh;
@@ -21,15 +25,27 @@ body {
     flex-direction: column;
 }
 
+body.homepage {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+}
+
 h1 {
     text-align: center;
     margin-top: 0;
+    margin-bottom: 20px;
     font-family: "Playfair Display", Georgia, serif;
+    text-shadow: 0 0 10px var(--light-bg), 0 0 10px var(--light-bg), 0 0 10px var(--light-bg);
 }
 
 h2 {
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
     font-family: "Playfair Display", Georgia, serif;
+    text-shadow: 0 0 10px var(--light-bg), 0 0 10px var(--light-bg);
 }
 
 .hero-text h1 {
@@ -38,6 +54,7 @@ h2 {
     display: inline-block;
     position: relative;
     padding-bottom: 12px;
+    text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg), 0 0 20px var(--light-bg), 0 0 20px var(--light-bg);
 }
 
 .hero-text h1::after {
@@ -181,6 +198,7 @@ form {
 .weather-search .btn {
     padding: 4px 12px;
     font-size: 14px;
+    background-color: var(--light-bg);
 }
 
 .weather-line {
@@ -246,6 +264,10 @@ form {
 .hero-text {
     max-width: 400px;
     text-align: center;
+}
+
+.hero-text p {
+    text-shadow: 0 0 10px var(--light-bg), 0 0 10px var(--light-bg), 0 0 10px var(--light-bg);
 }
 
 
