@@ -28,7 +28,11 @@
 | Typo in `core/admin.py` - `list_filter` used `member_only` instead of `members_only`, so the admin site would not load (`admin.E116`) | Fixed the field name to `members_only` |
 | The homepage crashed with a 500 error, both locally and on the live site - `index.html` used `{% static %}` in its content block but was missing `{% load static %}` at the top, since that tag has to be loaded again in every file that extends `base.html` and uses it | Added `{% load static %}` back to `index.html` |
 | The sign up page avatars did not load, just broken image icons - the Multiavatar website blocked the requests | Made the avatar pictures with the Multiavatar package instead and saved them as normal image files in the project, so there is no live website needed anymore |
+| Adding a new cafe did not give any feedback - after saving, the page just showed the same empty form again instead of going to the map, because `add_cafe_page` was missing a `return redirect('map')` after saving | Added the missing redirect |
+| The cafe list showed 9 cafes before pressing "More" instead of 10 - `cafe-list.html` used `forloop.counter >= 10` instead of `> 10`, so the 10th cafe got hidden too | Changed it to `> 10` |
 
 ![Server Error 500 on the live site](assets/images/error-500.png)
 
 ![Avatar pictures broken on sign up before switching to local SVGs](assets/images/multi-avatar.png)
+
+![Only 9 cafes showing instead of 10 before the More button](assets/images/cafe9.png)

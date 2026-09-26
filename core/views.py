@@ -215,6 +215,7 @@ def add_cafe_page(request):
             quiet_rating=4 if quiet == 'yes' else 2,
             submitted_by=request.user,
         )
+        return redirect('map')
 
     return render(request, 'add-cafe.html')
 

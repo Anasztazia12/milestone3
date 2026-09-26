@@ -25,7 +25,7 @@
 
     <div class="cafe-list">
         {% for cafe in cafes %}
-            <div class="add-place-card cafe-card{% if forloop.counter >= 10 %} extra-cafe{% endif %}">
+            <div class="add-place-card cafe-card{% if forloop.counter > 10 %} extra-cafe{% endif %}">
                 <p>
                     <strong>{{ cafe.name }}</strong><br>
                     {{ cafe.address }}, {{ cafe.city }}

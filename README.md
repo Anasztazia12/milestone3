@@ -230,6 +230,14 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | quiet_rating | IntegerField |
 | submitted_by | ForeignKey (User) - so only the user who added a cafe can edit or delete it |
 | favourited_by | ManyToManyField (User) - so a user can save a cafe as a favourite |
+| created_on | DateTimeField - set automatically when the cafe is added, shown in the admin site |
+
+#### Profile
+
+| Field | Type |
+| --- | --- |
+| user | OneToOneField (User) - each user has exactly one profile |
+| avatar_seed | CharField - which of the built-in avatar pictures the user picked when they signed up |
 
 #### Spot
 
@@ -257,10 +265,12 @@ This table currently stores a date, time and status, from an earlier plan where 
 - one Spot can have many check-ins
 - one User can have many check-ins, but can only view or end their own
 - a User can favourite many Cafes, and a Cafe can be favourited by many Users
+- one User has exactly one Profile, which stores their chosen avatar
 
 ```text
 Cafe ---< Spot ---< Check-in >--- User
 Cafe >---< User (favourites)
+User --- Profile
 ```
 
 ## Validation and Security Planning
@@ -301,6 +311,8 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 4. Migrations run automatically on every deploy (see `Procfile`)
 5. Run `heroku run python manage.py seed_cafes` once for the starter cafes
 
+After each deploy, the live site was checked page by page against the local version (search, login, sign up, adding a cafe, favouriting, the map) to make sure everything still worked the same as in development.
+
 ## Future Improvements
 
 - Checking in ("I am here") to the cafe you are currently working from, and checking out ("I am out") when you leave.
@@ -309,6 +321,7 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 - Letting logged-in users ask each other if there is free space at a cafe right now, and reply yes/no.
 - Letting logged-in users leave a comment on any cafe (for example, to say it is still good or has closed down).
 - Showing the weather a few days ahead, for when someone is planning a visit rather than going right now.
+- Letting a user change their avatar after signing up, or remove it.
 
 ## Changes During Development
 

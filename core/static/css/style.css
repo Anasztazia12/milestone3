@@ -97,8 +97,9 @@ form {
 }
 
 .avatar-choices {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
     gap: 10px;
     margin-bottom: 15px;
 }
@@ -517,6 +518,10 @@ footer {
 @media (max-width: 600px) {
     .hero-text h1 {
         font-size: 30px;
+    }
+
+    .avatar-choices {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .navbar {
