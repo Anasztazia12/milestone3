@@ -193,7 +193,7 @@ def delete_account(request):
         logout(request)
         return redirect('home')
 
-    return render(request, 'delete_account.html')
+    return render(request, 'delete-account.html')
 
 
 def add_cafe_page(request):

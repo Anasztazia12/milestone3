@@ -296,6 +296,8 @@ The site is deployed to Heroku, connected to the `main` branch of this GitHub re
 
 ### Local setup
 
+This project uses Python 3.14. The `.python-version` file tells Heroku to use the same version too.
+
 1. Clone this repository and create a virtual environment
 2. `pip install -r requirements.txt`
 3. Create an `env.py` file in the project root (not committed to Git) with `DB_NAME`, `DB_USER`, `DB_PASSWORD`, `DB_HOST`, `DB_PORT` and `WEATHER_API_KEY`
