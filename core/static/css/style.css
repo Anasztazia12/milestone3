@@ -96,6 +96,37 @@ form {
     margin-bottom: 5px;
 }
 
+.avatar-choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.avatar-option img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.avatar-option input {
+    display: none;
+}
+
+.avatar-option input:checked + img {
+    border-color: var(--main-color);
+}
+
+.welcome-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
 .feature-icons {
     display: flex;
     justify-content: center;

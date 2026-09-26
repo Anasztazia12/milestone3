@@ -37,6 +37,16 @@
         <label for="password2">Confirm password</label>
         <input type="password" id="password2" name="password2" placeholder="Re-enter your password" autocomplete="new-password" required>
 
+        <label>Choose your avatar</label>
+        <div class="avatar-choices">
+            {% for seed in avatar_seeds %}
+                <label class="avatar-option">
+                    <input type="radio" name="avatar_seed" value="{{ seed }}" {% if forloop.first %}checked{% endif %}>
+                    <img src="https://api.multiavatar.com/{{ seed }}.svg" alt="Avatar option {{ seed }}">
+                </label>
+            {% endfor %}
+        </div>
+
         <button type="submit" class="btn btn-success w-100">Sign up</button>
     </form>
 

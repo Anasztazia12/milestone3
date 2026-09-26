@@ -4,7 +4,9 @@ import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from core.models import Cafe
+from core.models import Cafe, Profile
+
+AVATAR_SEEDS = ['Felix', 'Luna', 'Nova', 'Buddy', 'Ginger', 'Milo']
 
 WEATHER_ICONS = {
     '01': 'bi-sun',
@@ -160,6 +162,7 @@ def signup_page(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
+        avatar_seed = request.POST.get('avatar_seed', AVATAR_SEEDS[0])
 
         if password1 != password2:
             error = 'Passwords do not match'
@@ -167,10 +170,11 @@ def signup_page(request):
             error = 'Username already taken'
         else:
             user = User.objects.create_user(username=username, email=email, password=password1)
+            Profile.objects.create(user=user, avatar_seed=avatar_seed)
             login(request, user)
             return redirect('home')
 
-    return render(request, 'signup.html', {'error': error})
+    return render(request, 'signup.html', {'error': error, 'avatar_seeds': AVATAR_SEEDS})
 
 
 def logout_page(request):

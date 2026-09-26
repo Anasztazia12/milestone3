@@ -58,7 +58,12 @@
             <h1>WorkCafe</h1>
 
             {% if user.is_authenticated %}
-                <p class="welcome">Welcome, {{ user.username }}!</p>
+                <p class="welcome">
+                    {% if user.profile %}
+                        <img src="https://api.multiavatar.com/{{ user.profile.avatar_seed }}.svg" alt="" class="welcome-avatar">
+                    {% endif %}
+                    Welcome, {{ user.username }}!
+                </p>
             {% endif %}
 
             <p>Search for a nearby cafe or workspace with good wifi and a quiet corner.</p>

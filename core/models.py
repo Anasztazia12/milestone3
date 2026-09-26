@@ -20,6 +20,14 @@ class Cafe(models.Model):
         return self.name + " (" + self.city + ")"
 
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar_seed = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.user.username + ' profile'
+
+
 class Spot(models.Model):
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     spot_name = models.CharField(max_length=100)
