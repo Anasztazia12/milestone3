@@ -44,9 +44,12 @@ Check-in, checking free space and checking out are not built yet (see Future Imp
 | The sign up page avatars did not load, just broken image icons - the Multiavatar website blocked the requests | Made the avatar pictures with the Multiavatar package instead and saved them as normal image files in the project, so there is no live website needed anymore |
 | Adding a new cafe did not give any feedback - after saving, the page just showed the same empty form again instead of going to the map, because `add_cafe_page` was missing a `return redirect('map')` after saving | Added the missing redirect |
 | The cafe list showed 9 cafes before pressing "More" instead of 10 - `cafe-list.html` used `forloop.counter >= 10` instead of `> 10`, so the 10th cafe got hidden too | Changed it to `> 10` |
+| After adding a background picture to the homepage, the weather text ("London: 19°C...") was hard to read because the patterned background showed through it | Added a text-shadow so the text always stays readable |
 
 ![Server Error 500 on the live site](assets/images/error-500.png)
 
 ![Avatar pictures broken on sign up before switching to local SVGs](assets/images/multi-avatar.png)
 
 ![Only 9 cafes showing instead of 10 before the More button](assets/images/cafe9.png)
+
+![Weather text hard to read against the background picture](assets/images/weather-visibility.png)
