@@ -2,6 +2,8 @@
 
 WorkCafe - a website where you can find a good cafe to work from and check in to show you are there, built with Python and Django for my MS3 project.
 
+![WorkCafe shown on desktop, laptop, tablet and phone](assets/images/responsive-devices-mockup.png)
+
 ## Description
 
 WorkCafe is a website for finding a cafe to work from - somewhere with decent wifi, a power outlet and a quiet corner - and checking in there so others know you are working from it.
