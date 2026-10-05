@@ -269,6 +269,8 @@ This table currently stores a date, time and status, from an earlier plan where 
 - a User can favourite many Cafes, and a Cafe can be favourited by many Users
 - one User has exactly one Profile, which stores their chosen avatar
 
+ERD diagram below made with the help of GitHub Copilot:
+
 ```mermaid
 erDiagram
     USER ||--o{ CAFE : submits
