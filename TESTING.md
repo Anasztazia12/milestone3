@@ -20,6 +20,8 @@ Check-in, checking free space and checking out are not built yet (see Future Imp
 
 ![HTML validator result for the map page, no errors or warnings](assets/images/html-validator-maps.png)
 
+![HTML validator result for the cafes page, no errors or warnings](assets/images/html-validator-cafes.png)
+
 ## Bugs Found
 
 | Bug | Fix |
@@ -53,3 +55,40 @@ Check-in, checking free space and checking out are not built yet (see Future Imp
 ![Only 9 cafes showing instead of 10 before the More button](assets/images/cafe9.png)
 
 ![Weather text hard to read against the background picture](assets/images/weather-visibility.png)
+
+## Security Check
+
+Ran Django's built-in deployment check to see if any recommended production security settings were missing:
+
+```bash
+python manage.py check --deploy
+```
+
+This came back with these warnings, since none of the settings below existed yet in `config/settings.py`:
+
+```text
+WARNINGS:
+?: (security.W004) You have not set a value for the SECURE_HSTS_SECONDS setting. If your entire site is served only over SSL, you may want to consider setting a value and enabling HTTP Strict Transport Security. Be sure to read the documentation first; enabling HSTS carelessly can cause serious, irreversible problems.
+?: (security.W008) Your SECURE_SSL_REDIRECT setting is not set to True. Unless your site should be available over both SSL and non-SSL connections, you may want to either set this setting True or configure a load balancer or reverse-proxy server to redirect all connections to HTTPS.
+?: (security.W012) SESSION_COOKIE_SECURE is not set to True. Using a secure-only session cookie makes it more difficult for network traffic sniffers to hijack user sessions.
+?: (security.W016) You have 'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE, but you have not set CSRF_COOKIE_SECURE to True. Using a secure-only CSRF cookie makes it more difficult for network traffic sniffers to steal the CSRF token.
+?: (security.W018) You should not have DEBUG set to True in deployment.
+```
+
+Added the missing settings, only turned on when `DEBUG` is off (production):
+
+```python
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+```
+
+Also added `CSRF_TRUSTED_ORIGINS`, built automatically from `ALLOWED_HOSTS`.
+
+Re-ran the check with `DEBUG=False` (simulating production) and all of these warnings were gone. Running the check normally, with `DEBUG=True` for local development, still shows these warnings - that is expected, since the settings above are only meant to apply once deployed, not on a local machine.

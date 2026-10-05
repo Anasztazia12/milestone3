@@ -267,10 +267,44 @@ This table currently stores a date, time and status, from an earlier plan where 
 - a User can favourite many Cafes, and a Cafe can be favourited by many Users
 - one User has exactly one Profile, which stores their chosen avatar
 
-```text
-Cafe ---< Spot ---< Check-in >--- User
-Cafe >---< User (favourites)
-User --- Profile
+```mermaid
+erDiagram
+    USER ||--o{ CAFE : submits
+    USER }o--o{ CAFE : favourites
+    USER ||--|| PROFILE : has
+    USER ||--o{ BOOKING : makes
+    CAFE ||--o{ SPOT : has
+    SPOT ||--o{ BOOKING : has
+
+    USER {
+        string username
+        string email
+        string password
+    }
+    CAFE {
+        string name
+        string address
+        string city
+        float latitude
+        float longitude
+        bool has_power_outlets
+        int wifi_speed_mbps
+        int quiet_rating
+        bool members_only
+        datetime created_on
+    }
+    SPOT {
+        string spot_name
+        int capacity
+    }
+    BOOKING {
+        date date
+        time start_time
+        string status
+    }
+    PROFILE {
+        string avatar_seed
+    }
 ```
 
 ## Validation and Security Planning
@@ -309,7 +343,10 @@ This project uses Python 3.14. The `.python-version` file tells Heroku to use th
 
 1. Create a Heroku app and add the Heroku Postgres add-on
 2. Set the Config Vars: `SECRET_KEY`, `WEATHER_API_KEY`, `ALLOWED_HOSTS`
-3. Connect the app to this GitHub repository and enable automatic deploys from `main`
+3. Connect the app to this GitHub repository and enable automatic deploys from `main`:
+    - Go to the Deploy tab on the Heroku Dashboard
+    - Under Deployment method, choose GitHub and connect this repository
+    - Under Automatic Deploys, choose the `main` branch and click Enable Automatic Deploys
 4. Migrations run automatically on every deploy (see `Procfile`)
 5. Run `heroku run python manage.py seed_cafes` once for the starter cafes
 
@@ -348,3 +385,4 @@ Things can work fine on my computer but break once the site is actually online -
 - coffee.gif - Pixabay.com
 - Map tiles - &copy; Esri
 - Cafe names, addresses and details (wifi speed, quiet rating) used in the seed data were gathered with the help of Google Gemini
+- ERD diagram made with the help of GitHub Copilot
