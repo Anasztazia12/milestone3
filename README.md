@@ -320,6 +320,8 @@ erDiagram
 
 The layout is built mobile-first with a single centred column, so it naturally works on mobile, tablet and desktop without a separate layout for each size.
 
+![WorkCafe shown on desktop, laptop, tablet and phone](assets/images/responsive-devices-mockup.png)
+
 ## Testing
 
 See [TESTING.md](TESTING.md) for the manual testing notes and the full list of bugs found and fixed during development.
