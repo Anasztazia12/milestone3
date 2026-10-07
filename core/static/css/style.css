@@ -104,6 +104,16 @@ form {
     border-radius: 4px;
 }
 
+/* same white card look for the 404 page message */
+.error-box {
+    max-width: 400px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
 /* search box on the homepage, not a card like the login/signup forms */
 .search-form {
     max-width: 600px;

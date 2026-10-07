@@ -22,6 +22,25 @@ Check-in, checking free space and checking out are not built yet (see Future Imp
 
 ![HTML validator result for the cafes page, no errors or warnings](assets/images/html-validator-cafes.png)
 
+![CSS validator result for style.css, valid CSS with no errors](assets/images/css-validator.png)
+
+The CSS validator only shows warnings, no errors. Most of the warnings come from Bootstrap's own CSS file (vendor prefixes like `-webkit-` and `-moz-`), not from my code. The only warnings from my own CSS are "same color for background-color and border-color" on a few buttons, which is on purpose so the button has no visible border, just a solid color.
+
+## Automated Testing
+
+Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`, run with `python manage.py test core`.
+
+- homepage loads for anyone
+- signing up creates a new user and logs them in
+- logging in with the wrong password shows an error message instead of crashing
+- a logged out user trying to add a cafe gets sent to the login page
+- a logged in user can add a new cafe
+- a user cannot edit a cafe they don't own (gets a 404, not someone else's data)
+- favouriting a cafe adds it, favouriting it again removes it
+- deleting a cafe actually removes it from the database
+
+![Automated test result, 8 tests run with OK](assets/images/python-test.png)
+
 ## Bugs Found
 
 | Bug | Fix |
