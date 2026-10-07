@@ -382,6 +382,8 @@ After each deploy, the live site was checked page by page against the local vers
 
 Things can work fine on my computer but break once the site is actually online - the map tiles and static files only caused problems after I deployed. If I did it again I would decide on the database models first, before building any pages, instead of changing my mind halfway through. I also learned that Django already does most of the login/signup work for you, and that testing every small change straight away makes bugs a lot easier to find.
 
+While working on this project I also googled a few similar apps, and it turned out there is already a real app with the exact same name, [WorkCafe](https://www.workcafe.com/) - a much bigger and more professional system. What I found funny is that the person behind it, [Balazs Szekely](https://www.workcafe.com/blog/author/balazs-szekely/), is Hungarian too, so it seems like Hungarian minds think alike, even down to the name 😊
+
 ## Credits
 
 - Login wireframe image - generated with Copilot

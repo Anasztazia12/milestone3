@@ -114,6 +114,11 @@ form {
     border-radius: 4px;
 }
 
+.error-cup {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
 /* search box on the homepage, not a card like the login/signup forms */
 .search-form {
     max-width: 600px;
