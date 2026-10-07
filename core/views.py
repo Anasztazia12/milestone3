@@ -4,6 +4,7 @@ import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.templatetags.static import static as static_asset
 from core.models import Cafe, Profile
 
@@ -132,8 +133,10 @@ def toggle_favourite(request, cafe_id):
     if request.method == 'POST':
         if request.user in cafe.favourited_by.all():
             cafe.favourited_by.remove(request.user)
+            messages.success(request, 'Removed ' + cafe.name + ' from your favourites.')
         else:
             cafe.favourited_by.add(request.user)
+            messages.success(request, 'Added ' + cafe.name + ' to your favourites.')
 
     return redirect(request.POST.get('next', 'cafe_list'))
 
@@ -148,6 +151,7 @@ def login_page(request):
 
         if user is not None:
             login(request, user)
+            messages.success(request, 'Welcome back, ' + user.username + '!')
             return redirect('home')
         else:
             error = 'Wrong username or password'
@@ -173,6 +177,7 @@ def signup_page(request):
             user = User.objects.create_user(username=username, email=email, password=password1)
             Profile.objects.create(user=user, avatar_seed=avatar_seed)
             login(request, user)
+            messages.success(request, 'Welcome, ' + user.username + '! Your account has been created.')
             return redirect('home')
 
     avatar_options = []
@@ -184,6 +189,7 @@ def signup_page(request):
 
 def logout_page(request):
     logout(request)
+    messages.success(request, 'You have been logged out.')
     return redirect('home')
 
 
@@ -191,6 +197,7 @@ def delete_account(request):
     if request.method == 'POST':
         request.user.delete()
         logout(request)
+        messages.success(request, 'Your account has been deleted.')
         return redirect('home')
 
     return render(request, 'delete-account.html')
@@ -215,6 +222,7 @@ def add_cafe_page(request):
             quiet_rating=4 if quiet == 'yes' else 2,
             submitted_by=request.user,
         )
+        messages.success(request, name + ' has been added.')
         return redirect('map')
 
     return render(request, 'add-cafe.html')
@@ -249,6 +257,7 @@ def edit_cafe_page(request, cafe_id):
         cafe.wifi_speed_mbps = 50 if wifi == 'yes' else 0
         cafe.quiet_rating = 4 if quiet == 'yes' else 2
         cafe.save()
+        messages.success(request, cafe.name + ' has been updated.')
         return redirect('my_cafes')
 
     return render(request, 'edit-cafe.html', {'cafe': cafe})
@@ -261,7 +270,9 @@ def delete_cafe_page(request, cafe_id):
     cafe = get_object_or_404(Cafe, id=cafe_id, submitted_by=request.user)
 
     if request.method == 'POST':
+        cafe_name = cafe.name
         cafe.delete()
+        messages.success(request, cafe_name + ' has been deleted.')
         return redirect('my_cafes')
 
     return render(request, 'delete-cafe.html', {'cafe': cafe})
