@@ -46,6 +46,7 @@ WorkCafe brings this into one simple, searchable list with a map, and lets users
 | OpenWeatherMap API | Shows the current weather on the homepage |
 | Leaflet | Displays the interactive cafe map |
 | Esri | Provides the map tiles |
+| Jotform | Website tour widget on the homepage |
 | gunicorn | Runs the Django app in production on Heroku |
 | WhiteNoise | Serves the CSS/image files in production |
 | dj-database-url | Reads Heroku's database URL |
