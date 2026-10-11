@@ -394,3 +394,8 @@ While working on this project I also googled a few similar apps, and it turned o
 - Map tiles - &copy; Esri
 - Cafe names, addresses and details (wifi speed, quiet rating) used in the seed data were gathered with the help of Google Gemini
 - ERD diagram made with the help of GitHub Copilot
+- Website tour widget - created with [Jotform](https://eu.jotform.com/website-widgets/website-tour/) and added as embed code
+
+![Jotform website tour widget being created](assets/images/jotform-website-tour.png)
+
+![Jotform website tour widget embed code](assets/images/jotform-website-tour2.png)
