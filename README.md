@@ -396,6 +396,7 @@ While working on this project I also googled a few similar apps, and it turned o
 - Cafe names, addresses and details (wifi speed, quiet rating) used in the seed data were gathered with the help of Google Gemini
 - ERD diagram made with the help of GitHub Copilot
 - Website tour widget - created with [Jotform](https://eu.jotform.com/website-widgets/website-tour/) and added as embed code. It doesn't start automatically, there is a "start tour" icon at the bottom of the page to click
+- Back to top button - created with Jotform and added as embed code on every page
 
 ![Jotform website tour widget being created](assets/images/jotform-website-tour.png)
 
