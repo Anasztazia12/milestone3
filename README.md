@@ -231,7 +231,7 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | has_power_outlets | BooleanField |
 | wifi_speed_mbps | IntegerField |
 | quiet_rating | IntegerField |
-| submitted_by | ForeignKey (User) - so only the user who added a cafe can edit or delete it |
+| submitted_by | ForeignKey (User, on_delete=CASCADE) - so only the user who added a cafe can edit or delete it. If that user deletes their account, their cafes are deleted too, not just hidden |
 | favourited_by | ManyToManyField (User) - so a user can save a cafe as a favourite |
 | created_on | DateTimeField - set automatically when the cafe is added, shown in the admin site |
 
