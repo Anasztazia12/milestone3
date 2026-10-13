@@ -46,7 +46,8 @@
         }).addTo(map);
 
         for (var i = 0; i < cafes.length; i++) {
-            L.marker([cafes[i].lat, cafes[i].lng]).addTo(map).bindPopup(cafes[i].name);
+            var popupText = '<strong>' + cafes[i].name + '</strong><br>' + cafes[i].address + '<br><br>Wifi: ' + cafes[i].wifi_speed_mbps + ' Mbps &middot; Quiet: ' + cafes[i].quiet_rating + '/5';
+            L.marker([cafes[i].lat, cafes[i].lng]).addTo(map).bindPopup(popupText);
         }
     </script>
 {% endblock %}

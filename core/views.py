@@ -85,6 +85,9 @@ def map_page(request):
         if cafe.latitude is not None and cafe.longitude is not None:
             cafes_data.append({
                 'name': cafe.name,
+                'address': cafe.address,
+                'wifi_speed_mbps': cafe.wifi_speed_mbps,
+                'quiet_rating': cafe.quiet_rating,
                 'lat': cafe.latitude,
                 'lng': cafe.longitude,
             })

@@ -66,6 +66,10 @@ Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`
 | Adding a new cafe did not give any feedback - after saving, the page just showed the same empty form again instead of going to the map, because `add_cafe_page` was missing a `return redirect('map')` after saving | Added the missing redirect |
 | The cafe list showed 9 cafes before pressing "More" instead of 10 - `cafe-list.html` used `forloop.counter >= 10` instead of `> 10`, so the 10th cafe got hidden too | Changed it to `> 10` |
 | After adding a background picture to the homepage, the weather text ("London: 19°C...") was hard to read because the patterned background showed through it | Added a text-shadow so the text always stays readable |
+| Clicking a cafe on the map popup showed nothing useful - the address and other details were never sent to the map, only the name | Added the address, wifi speed and quiet rating to the popup |
+| One of the seed cafes was accidentally named "Costa Coffee (Belvaros)" - Hungarian for "downtown" instead of English | Renamed it to "Costa Coffee (Regent Road)" |
+
+![Map popup showing a cafe's name, address, wifi speed and quiet rating](assets/images/maps.png)
 
 ![Server Error 500 on the live site](assets/images/error-500.png)
 

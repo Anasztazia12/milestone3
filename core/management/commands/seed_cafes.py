@@ -83,7 +83,7 @@ CAFES = [
         'quiet_rating': 4,
     },
     {
-        'name': 'Costa Coffee (Belvaros)',
+        'name': 'Costa Coffee (Regent Road)',
         'address': '1 Regent Rd',
         'city': 'Great Yarmouth',
         'latitude': 52.6076,
