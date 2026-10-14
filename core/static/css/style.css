@@ -58,7 +58,7 @@ body.homepage {
 
 h1 {
     text-align: center;
-    margin-top: 0;
+    margin-top: 25px;
     margin-bottom: 20px;
     font-family: "Playfair Display", Georgia, serif;
     text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg), 0 0 20px var(--light-bg), 0 0 20px var(--light-bg);
@@ -255,7 +255,10 @@ form {
     gap: 10px;
     margin: 0;
     font-size: 20px;
-    text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg);
+    background-color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .weather-icon {
@@ -449,7 +452,7 @@ input {
     align-items: center;
     justify-content: space-between;
     gap: 15px;
-    margin: -10px -10px 20px -10px;
+    margin: -10px -10px 0 -10px;
     padding: 16px;
     background-color: #4e342e;
 }
@@ -649,7 +652,7 @@ footer {
     margin-top: auto;
     padding: 30px 20px 15px 20px;
     background-color: #e8d5c4;
-    color: #4e342e;
+    color: #000000;
     font-size: 16px;
 }
 
@@ -671,7 +674,7 @@ footer {
 .footer-about p {
     margin-top: 8px;
     font-size: 16px;
-    color: #4e342e;
+    color: #000000;
 }
 
 .footer-column h3 {
@@ -689,7 +692,7 @@ footer {
 }
 
 .footer-column a {
-    color: #4e342e;
+    color: #000000;
     text-decoration: none;
     font-size: 16px;
 }
@@ -705,11 +708,11 @@ footer {
 }
 
 footer .footer-text {
-    color: #4e342e;
+    color: #000000;
 }
 
 footer .footer-text::after {
-    background-color: #4e342e;
+    background-color: #000000;
 }
 
 /* responsive - small screens */
@@ -821,6 +824,14 @@ footer .footer-text::after {
 
     .search-form {
         flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search-form input {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
     }
 
     .search-form .btn {
@@ -853,10 +864,6 @@ footer .footer-text::after {
         height: 300px;
     }
 
-    .map-top-row .search-form,
-    .map-top-row .add-place-card {
-        max-width: 100%;
-    }
 }
 
 /* the leaflet map box on map.html */
@@ -922,15 +929,14 @@ footer .footer-text::after {
 .map-top-row .search-form,
 .map-top-row .add-place-card {
     margin: 15px 0;
-    flex: 0 0 auto;
+    flex: 1 1 300px;
+    min-width: 0;
 }
 
 .map-top-row .search-form {
-    flex-basis: 600px;
     max-width: 600px;
 }
 
 .map-top-row .add-place-card {
-    flex-basis: 360px;
     max-width: 360px;
 }

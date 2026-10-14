@@ -67,9 +67,14 @@ Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`
 | The cafe list showed 9 cafes before pressing "More" instead of 10 - `cafe-list.html` used `forloop.counter >= 10` instead of `> 10`, so the 10th cafe got hidden too | Changed it to `> 10` |
 | After adding a background picture to the homepage, the weather text ("London: 19°C...") was hard to read because the patterned background showed through it | Added a text-shadow so the text always stays readable |
 | Clicking a cafe on the map popup showed nothing useful - the address and other details were never sent to the map, only the name | Added the address, wifi speed and quiet rating to the popup |
-| One of the seed cafes was accidentally named "Costa Coffee (Belvaros)" - Hungarian for "downtown" instead of English | Renamed it to "Costa Coffee (Regent Road)" |
+| One of the seed cafes was accidentally named "Costa Coffee (Belvaros)" - Hungarian for "downtown" instead of English | Renamed it to "Costa Coffee (Regent Road)" in the code, but since the live site has its own separate database, the existing cafe there was not updated automatically - had to create a superuser account on Heroku (`heroku run python manage.py createsuperuser`) and fix the name directly in the live Django admin |
+| On the live site, the admin page (and any other missing URL) gave a 500 error instead of the usual 404 page - the custom `404.html` uses `{% static 'images/cafe.png' %}`, but that image had only ever been copied into `assets/images/`, not into `core/static/images/` where Django actually serves static files from, so WhiteNoise crashed trying to find it | Copied `cafe.png` into `core/static/images/` too, then checked every other `{% static %}` reference in the templates to make sure none of the others were missing either |
 
 ![Map popup showing a cafe's name, address, wifi speed and quiet rating](assets/images/maps.png)
+
+![Creating a superuser on Heroku to fix the live cafe data](assets/images/powershell-superuser.png)
+
+![Server Error 500 on the admin page, caused by the missing cafe.png static file](assets/images/server500.png)
 
 ![Server Error 500 on the live site](assets/images/error-500.png)
 
