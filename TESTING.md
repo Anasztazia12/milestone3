@@ -74,6 +74,12 @@ Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`
 
 ![Creating a superuser on Heroku to fix the live cafe data](assets/images/powershell-superuser.png)
 
+![The live Django admin, with the wrongly named Costa Coffee (Belvaros) selected](assets/images/admin.png)
+
+![The live Django admin cafe list](assets/images/admin2.png)
+
+![The map popup after the fix, now correctly showing Costa Coffee (Regent Road)](assets/images/belvaros-regent-road.png)
+
 ![Server Error 500 on the admin page, caused by the missing cafe.png static file](assets/images/server500.png)
 
 ![Server Error 500 on the live site](assets/images/error-500.png)
