@@ -151,6 +151,13 @@ form {
     font-size: 14px;
 }
 
+.no-cafes-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-color);
+    text-shadow: 0 0 6px var(--light-bg), 0 0 6px var(--light-bg), 0 0 14px var(--light-bg), 0 0 14px var(--light-bg);
+}
+
 .welcome {
     color: var(--main-color);
     font-weight: bold;

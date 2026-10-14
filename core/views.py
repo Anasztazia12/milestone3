@@ -90,6 +90,7 @@ def map_page(request):
                 'quiet_rating': cafe.quiet_rating,
                 'lat': cafe.latitude,
                 'lng': cafe.longitude,
+                'url': '/cafe/' + str(cafe.id) + '/',
             })
 
     context = {
@@ -125,6 +126,21 @@ def cafe_list_page(request):
         'favourite_ids': favourite_ids,
     }
     return render(request, 'cafe-list.html', context)
+
+
+def cafe_detail_page(request, cafe_id):
+    if request.user.is_authenticated:
+        cafe = get_object_or_404(Cafe, id=cafe_id)
+    else:
+        cafe = get_object_or_404(Cafe, id=cafe_id, members_only=False)
+
+    is_favourite = request.user.is_authenticated and request.user in cafe.favourited_by.all()
+
+    context = {
+        'cafe': cafe,
+        'is_favourite': is_favourite,
+    }
+    return render(request, 'cafe-detail.html', context)
 
 
 def toggle_favourite(request, cafe_id):

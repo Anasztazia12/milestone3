@@ -27,7 +27,7 @@
         {% for cafe in cafes %}
             <div class="add-place-card cafe-card{% if forloop.counter > 10 %} extra-cafe{% endif %}">
                 <p>
-                    <strong>{{ cafe.name }}</strong><br>
+                    <strong><a href="{% url 'cafe_detail' cafe.id %}">{{ cafe.name }}</a></strong><br>
                     {{ cafe.address }}, {{ cafe.city }}
                 </p>
                 <p class="signup-hint">
@@ -50,7 +50,7 @@
                 {% endif %}
             </div>
         {% empty %}
-            <p class="text-center">No cafes found.</p>
+            <p class="text-center no-cafes-message">There's no cafe here yet.</p>
         {% endfor %}
     </div>
 
