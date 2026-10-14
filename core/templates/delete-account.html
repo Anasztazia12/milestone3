@@ -11,6 +11,10 @@
 
     <form method="post">
         {% csrf_token %}
+        <label>
+            <input type="checkbox" name="delete_cafes" value="yes">
+            Also delete the cafes you added (otherwise they stay on WorkCafe, just without an owner)
+        </label>
         <button type="submit" class="btn btn-danger w-100">Yes, delete my account</button>
     </form>
 {% endblock %}

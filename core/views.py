@@ -214,6 +214,8 @@ def logout_page(request):
 
 def delete_account(request):
     if request.method == 'POST':
+        if request.POST.get('delete_cafes') == 'yes':
+            Cafe.objects.filter(submitted_by=request.user).delete()
         request.user.delete()
         logout(request)
         messages.success(request, 'Your account has been deleted.')

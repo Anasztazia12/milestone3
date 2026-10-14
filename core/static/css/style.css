@@ -449,7 +449,7 @@ input {
     align-items: center;
     justify-content: space-between;
     gap: 15px;
-    margin: -10px -10px 0 -10px;
+    margin: -10px -10px 20px -10px;
     padding: 16px;
     background-color: #4e342e;
 }
@@ -649,7 +649,7 @@ footer {
     margin-top: auto;
     padding: 30px 20px 15px 20px;
     background-color: #e8d5c4;
-    color: var(--main-color);
+    color: #4e342e;
     font-size: 16px;
 }
 
@@ -671,7 +671,7 @@ footer {
 .footer-about p {
     margin-top: 8px;
     font-size: 16px;
-    color: var(--main-color);
+    color: #4e342e;
 }
 
 .footer-column h3 {
@@ -689,7 +689,7 @@ footer {
 }
 
 .footer-column a {
-    color: var(--main-color);
+    color: #4e342e;
     text-decoration: none;
     font-size: 16px;
 }
@@ -705,11 +705,11 @@ footer {
 }
 
 footer .footer-text {
-    color: var(--main-color);
+    color: #4e342e;
 }
 
 footer .footer-text::after {
-    background-color: var(--main-color);
+    background-color: #4e342e;
 }
 
 /* responsive - small screens */

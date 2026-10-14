@@ -231,7 +231,7 @@ The project uses Django's ORM with PostgreSQL as the relational database.
 | has_power_outlets | BooleanField |
 | wifi_speed_mbps | IntegerField |
 | quiet_rating | IntegerField |
-| submitted_by | ForeignKey (User, on_delete=CASCADE) - so only the user who added a cafe can edit or delete it. If that user deletes their account, their cafes are deleted too, not just hidden |
+| submitted_by | ForeignKey (User, on_delete=SET_NULL) - so only the user who added a cafe can edit or delete it. If that user deletes their account, the cafe is not deleted automatically, since it might still be a real, open cafe - it just loses its owner. On the delete account page, the user can tick a box to delete their cafes too if they want to |
 | favourited_by | ManyToManyField (User) - so a user can save a cafe as a favourite |
 | created_on | DateTimeField - set automatically when the cafe is added, shown in the admin site |
 
@@ -368,6 +368,7 @@ After each deploy, the live site was checked page by page against the local vers
 - Letting logged-in users leave a comment on any cafe (for example, to say it is still good or has closed down).
 - Showing the weather a few days ahead, for when someone is planning a visit rather than going right now.
 - Letting a user change their avatar after signing up, or remove it.
+- When a cafe is left without an owner (its user deleted their account but kept the cafe), linking it to an admin account instead, with a "claim this cafe" button so someone else (for example a relative or the actual owner of the cafe) can take it over.
 
 ## Changes During Development
 
