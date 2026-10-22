@@ -110,6 +110,8 @@ The solution becomes valuable when it offers:
 
 ## User Stories
 
+These user stories were tracked on a [GitHub Project board](https://github.com/users/Anasztazia12/projects/11), moved from Todo to Done as each one was built and tested.
+
 ### First-time users
 
 - As a new visitor, I want to search cafes without an account, so that I can try the site before signing up.
@@ -391,7 +393,6 @@ While working on this project I also googled a few similar apps, and it turned o
 - Login wireframe image - generated with Copilot
 - New wireframe plan images - generated with Copilot
 - Logo - designed with Copilot
-- business-illustration.gif - Pixabay.com
 - coffee.gif - Pixabay.com
 - Map tiles - &copy; Esri
 - Cafe names, addresses and details (wifi speed, quiet rating) used in the seed data were gathered with the help of Google Gemini
