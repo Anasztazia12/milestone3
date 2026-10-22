@@ -69,6 +69,7 @@ Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`
 | Clicking a cafe on the map popup showed nothing useful - the address and other details were never sent to the map, only the name | Added the address, wifi speed and quiet rating to the popup |
 | One of the seed cafes was accidentally named "Costa Coffee (Belvaros)" - Hungarian for "downtown" instead of English | Renamed it to "Costa Coffee (Regent Road)" in the code, but since the live site has its own separate database, the existing cafe there was not updated automatically - had to create a superuser account on Heroku (`heroku run python manage.py createsuperuser`) and fix the name directly in the live Django admin |
 | On the live site, the admin page (and any other missing URL) gave a 500 error instead of the usual 404 page - the custom `404.html` uses `{% static 'images/cafe.png' %}`, but that image had only ever been copied into `assets/images/`, not into `core/static/images/` where Django actually serves static files from, so WhiteNoise crashed trying to find it | Copied `cafe.png` into `core/static/images/` too, then checked every other `{% static %}` reference in the templates to make sure none of the others were missing either |
+| On phone and tablet width, the search box on the Map and Cafes pages ran off the edge of the screen instead of shrinking to fit, because it had a fixed width and `flex-shrink: 0` | Let it shrink properly with `flex: 1 1 300px` and `min-width: 0`, and checked it on a real phone and tablet afterwards |
 
 ![Map popup showing a cafe's name, address, wifi speed and quiet rating](assets/images/maps.png)
 
@@ -81,6 +82,10 @@ Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`
 ![The map popup after the fix, now correctly showing Costa Coffee (Regent Road)](assets/images/belvaros-regent-road.png)
 
 ![Server Error 500 on the admin page, caused by the missing cafe.png static file](assets/images/server500.png)
+
+![Homepage on a real phone after the responsive fix, nothing runs off the edge](assets/images/responsive-phone.png)
+
+![Homepage on a real tablet after the responsive fix, nothing runs off the edge](assets/images/responsive-ipad.png)
 
 ![Server Error 500 on the live site](assets/images/error-500.png)
 
