@@ -677,12 +677,13 @@ footer {
     color: #000000;
 }
 
-.footer-column h3 {
+.footer-column h2 {
     font-family: "Playfair Display", Georgia, serif;
     font-size: 19px;
     font-weight: 800;
     margin: 0 0 10px 0;
     text-align: left;
+    text-shadow: none;
 }
 
 .footer-column {
@@ -734,7 +735,7 @@ footer .footer-text::after {
         align-items: center;
     }
 
-    .footer-column h3 {
+    .footer-column h2 {
         text-align: center;
     }
 

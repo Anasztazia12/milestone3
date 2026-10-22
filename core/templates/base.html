@@ -73,7 +73,7 @@
             </div>
 
             <div class="footer-column">
-                <h3>Quick Links</h3>
+                <h2>Quick Links</h2>
                 <a href="/">Home</a>
                 <a href="{% url 'cafe_list' %}">Cafes</a>
                 <a href="/map/">Map</a>
@@ -83,7 +83,7 @@
             </div>
 
             <div class="footer-column">
-                <h3>Account</h3>
+                <h2>Account</h2>
                 {% if user.is_authenticated %}
                     <a href="{% url 'logout' %}">Log out</a>
                 {% else %}
