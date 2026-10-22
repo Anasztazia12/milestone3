@@ -901,6 +901,18 @@ footer .footer-text::after {
     max-width: 260px;
     margin: 0;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cafe-card form {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.cafe-card a.btn:first-of-type {
+    margin-top: auto;
 }
 
 .cafe-card:hover {
