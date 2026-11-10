@@ -26,6 +26,10 @@ Check-in, checking free space and checking out are not built yet (see Future Imp
 
 The CSS validator only shows warnings, no errors. Most of the warnings come from Bootstrap's own CSS file (vendor prefixes like `-webkit-` and `-moz-`), not from my code. The only warnings from my own CSS are "same color for background-color and border-color" on a few buttons, which is on purpose so the button has no visible border, just a solid color.
 
+Also ran a Lighthouse audit on the live site in Chrome DevTools:
+
+![Lighthouse audit result on the live site - 95 Performance, 94 Accessibility, 100 Best Practices, 91 SEO](assets/images/lighthouse-test.png)
+
 ## Automated Testing
 
 Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`, run with `python manage.py test core`.
@@ -40,6 +44,8 @@ Wrote automated tests in `core/test_views.py` using Django's built-in `TestCase`
 - deleting a cafe actually removes it from the database
 
 ![Automated test result, 8 tests run with OK](assets/images/python-test.png)
+
+![Automated test result, 8 tests run with OK, re-run 10/11/2026 for the resubmission](assets/images/django-test.png)
 
 ## Bugs Found
 
