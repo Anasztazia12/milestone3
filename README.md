@@ -2,6 +2,8 @@
 
 WorkCafe - a website where you can find a good cafe to work from and check in to show you are there, built with Python and Django for my MS3 project.
 
+Live site: [https://workcafe-app-4f1f130b7d49.herokuapp.com/](https://workcafe-app-4f1f130b7d49.herokuapp.com/)
+
 ![WorkCafe shown on desktop, laptop, tablet and phone](assets/images/responsive-devices-mockup.png)
 
 ## Description
@@ -214,6 +216,18 @@ New wireframe plan (also generated with Copilot, updated to match how the homepa
 ### 5. Surface
 
 Coffee-shop colour scheme: warm brown and cream, with the Playfair Display font for headings and Georgia for body text.
+
+| Colour | Hex | Used for |
+| --- | --- | --- |
+| Main brown | `#694932` | Buttons, links, headings, nav bar background |
+| Light cream | `#f5ebe0` | Page background, text on dark backgrounds |
+| Border grey-brown | `#d7ccc8` | Card and form borders |
+| Dark brown (hover) | `#4e342e` | Button hover states, footer text |
+
+Fonts:
+
+- **Playfair Display** (Google Fonts) - all headings, for a coffee-shop, slightly editorial feel
+- **Georgia** (system serif font) - body text, form labels and buttons, for easy readability
 
 ## Database Design
 
