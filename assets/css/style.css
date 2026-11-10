@@ -894,15 +894,18 @@ footer .footer-text::after {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 15px;
 }
 
 .cafe-card {
+    flex: 0 1 260px;
     max-width: 260px;
     margin: 0;
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
 }
 
