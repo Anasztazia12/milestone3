@@ -407,7 +407,8 @@ While working on this project I also googled a few similar apps, and it turned o
 - Login wireframe image - generated with Copilot
 - New wireframe plan images - generated with Copilot
 - Logo - designed with Copilot
-- coffee.gif - Pixabay.com
+- coffee.gif - [Pixabay](https://pixabay.com/gifs/coffee-coffee-pot-cup-beans-1902/)
+- cafe.png (404 page image) - [Pixabay](https://pixabay.com/illustrations/cappuccino-coffee-caffeine-espresso-8519099/)
 - Map tiles - &copy; Esri
 - Cafe names, addresses and details (wifi speed, quiet rating) used in the seed data were gathered with the help of Google Gemini
 - ERD diagram made with the help of GitHub Copilot
